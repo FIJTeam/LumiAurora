@@ -331,9 +331,10 @@ var/list/world_api_rate_limit = list()
 	s += "<b>[station_name()]</b>";
 	s += " ("
 	s += "<a href=\"[GLOB.config.forumurl]\">" //Change this to wherever you want the hub to link to.
-	s += "Forums"  //Replace this with something else. Or ever better, delete it and uncomment the game version.
+	s += "Discord"  //Replace this with something else. Or ever better, delete it and uncomment the game version.
 	s += "</a>"
 	s += ")"
+	s += " Высокий уровень RolePlay, модифицированный без ответвлений билд Aurora"
 
 	var/list/features = list()
 
