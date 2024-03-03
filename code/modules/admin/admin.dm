@@ -608,7 +608,7 @@ var/global/enabled_spooking = 0
 		return
 
 	// RIP whoever uses this panel. It's going to be amazingly painful!
-	var/dat = "<B>Job Bans!</B><HR>"
+	var/dat = "<meta charset=\"UTF-8\"><B>Job Bans!</B><HR>"
 	dat += "<a href='byond://?src=[REF(src)];jobban_search=1'>Search via ckey</a><br>"
 	dat += "<table>"
 	for (var/ckey in GLOB.jobban_keylist)
@@ -623,7 +623,7 @@ var/global/enabled_spooking = 0
 /datum/admins/proc/Game()
 	if(!check_rights(0))	return
 
-	var/dat = {"
+	var/dat = {"<meta charset=\"UTF-8\">
 		<center><B>Game Panel</B></center><hr>\n
 		<A href='byond://?src=[REF(src)];c_mode=1'>Change Game Mode</A><br>
 		"}
