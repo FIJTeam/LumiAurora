@@ -331,7 +331,7 @@
 //Returns a string with reserved characters and spaces after the last letter removed
 /proc/trim_right(text)
 	for (var/i = length_char(text), i > 0, i--)
-		if (text2ascii_char(text, i) > 32)
+		if (text2ascii_char(text, i) != 32)
 			return copytext_char(text, 1, i + 1)
 	return ""
 
@@ -523,14 +523,14 @@
 	return replacetextEx_char(text,"\n","<br>")
 
 /proc/contains_az09(input)
-	for(var/i=1, i<=length(input), i++)
+	for(var/i=1, i<=length_char(input), i++)
 		var/ascii_char = text2ascii(input,i)
 		switch(ascii_char)
-			// A  .. Z
-			if(65 to 90)			//Uppercase Letters
+			// A  .. Z, А .. Я, Ё
+			if(65 to 90, 1040 to 1071, 1025)			//Uppercase Letters
 				return 1
-			// a  .. z
-			if(97 to 122)			//Lowercase Letters
+			// a  .. z, а .. я, ё
+			if(97 to 122, 1072 to 1103, 1105)			//Lowercase Letters
 				return 1
 
 			// 0  .. 9
