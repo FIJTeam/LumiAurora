@@ -374,31 +374,37 @@ var/list/global/organ_rel_size = list(
 
 /proc/slur(phrase, strength = 100)
 	phrase = html_decode(phrase)
-	var/leng = length_char(phrase)
-	var/counter = length_char(phrase)
-	var/newphrase = ""
-	var/newletter = ""
-	while (counter >= 1)
-		newletter = copytext_char(phrase, (leng - counter) + 1, (leng - counter) + 2)
-		if (prob(strength))
-			if (rand(1, 3) == 3)
-				switch (lowertext(newletter))
-					if ("o")
-						newletter = "u"
-					if ("s")
-						newletter = "ch"
-					if ("a")
-						newletter = "ah"
-					if ("c")
-						newletter = "k"
-
-			switch (rand(1, 15))
-				if (1, 3, 5, 8)
-					newletter = "[lowertext(newletter)]"
-				if (2, 4, 6, 15)
-					newletter = "[uppertext(newletter)]"
-				if (7)
-					newletter += "'"
+	var/leng=length_char(phrase)
+	var/counter=length_char(phrase)
+	var/newphrase=""
+	var/newletter=""
+	while(counter>=1)
+		newletter=copytext_char(phrase,(leng-counter)+1,(leng-counter)+2)
+		if(prob(strength))
+			if(rand(1,3)==3)
+				if(lowertext(newletter)=="o")	newletter="u"
+				if(lowertext(newletter)=="s")	newletter="ch"
+				if(lowertext(newletter)=="a")	newletter="ah"
+				if(lowertext(newletter)=="c")	newletter="k"
+			if(lowertext(newletter)=="о")
+				newletter="у"
+			if(lowertext(newletter)=="с")
+				newletter="ч"
+			if(lowertext(newletter)=="а")
+				newletter="ах"
+			if(lowertext(newletter)=="ц")
+				newletter="к"
+			if(lowertext(newletter)=="э")
+				newletter="о"
+			if(lowertext(newletter)=="г")
+				newletter="х"
+			switch(rand(1,15))
+				if(1,3,5,8)
+					newletter="[lowertext(newletter)]"
+				if(2,4,6,15)
+					newletter="[uppertext(newletter)]"
+				if(7)
+					newletter+="'"
 				else
 					. = null // For dreamchecker, does nothing
 		newphrase += "[newletter]"
@@ -408,9 +414,9 @@ var/list/global/organ_rel_size = list(
 /proc/Gibberish(t, p)//t is the inputted message, and any value higher than 70 for p will cause letters to be replaced instead of added
 	/* Turn text into complete gibberish! */
 	var/returntext = ""
-	for(var/i = 1, i <= length(t), i++)
+	for(var/i = 1, i <= length_char(t), i++)
 
-		var/letter = copytext(t, i, i+1)
+		var/letter = copytext_char(t, i, i+1)
 		if(prob(50))
 			if(p >= 70)
 				letter = ""
@@ -431,15 +437,15 @@ It's fairly easy to fix if dealing with single letters but not so much with comp
 */
 	var/te = html_decode(n)
 	var/t = ""
-	n = length(n)
+	n = length_char(n)
 	var/p = 1
 	while(p <= n)
 		var/n_letter
 		var/n_mod = rand(1,4)
 		if(p+n_mod>n+1)
-			n_letter = copytext(te, p, n+1)
+			n_letter = copytext_char(te, p, n+1)
 		else
-			n_letter = copytext(te, p, p+n_mod)
+			n_letter = copytext_char(te, p, p+n_mod)
 		if (prob(50))
 			if (prob(30))
 				n_letter = text("[n_letter]-[n_letter]-[n_letter]")
@@ -449,7 +455,7 @@ It's fairly easy to fix if dealing with single letters but not so much with comp
 			n_letter = text("[n_letter]")
 		t = text("[t][n_letter]")
 		p=p+n_mod
-	return sanitize(t)
+	return sanitize(copytext_char(t,1,MAX_MESSAGE_LEN))
 
 
 #define TICKS_PER_RECOIL_ANIM 2
