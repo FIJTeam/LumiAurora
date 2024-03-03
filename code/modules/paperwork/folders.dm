@@ -51,7 +51,7 @@
 	return
 
 /obj/item/folder/attack_self(mob/user as mob)
-	var/dat = "<title>[name]</title>"
+	var/dat = "<meta charset=\"UTF-8\"><title>[name]</title>"
 
 	for(var/obj/item/paper/P in src)
 		dat += "[can_write ? "<A href='byond://?src=[REF(src)];write=[REF(P)]'>Write</A> " : ""]<A href='byond://?src=[REF(src)];remove=[REF(P)]'>Remove</A> <A href='byond://?src=[REF(src)];rename=[REF(P)]'>Rename</A> - <A href='byond://?src=[REF(src)];read=[REF(P)]'>[P.name]</A><BR>"
