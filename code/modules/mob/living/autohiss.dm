@@ -67,10 +67,12 @@
 
 /datum/species/skrell
 	autohiss_basic_map = list(
-			"s" = list("sch", "ssch")
+			"s" = list("sch", "ssch"),
+			"с" = list("щ", "щщ")
 		)
 	autohiss_extra_map = list(
-			"x" = list("ksch", "kssch")
+			"x" = list("ksch", "kssch"),
+			"кс" = list("кщ", "кщщ")
 		)
 	autohiss_exempt = list(LANGUAGE_SKRELLIAN)
 	ignore_subsequent = TRUE
@@ -78,26 +80,38 @@
 /datum/species/bug
 	autohiss_basic_map = list(
 			"f" = list("v","vh"),
-			"ph" = list("v", "vh")
+			"ph" = list("v", "vh"),
+			"ф" = list("в", "вх"),
+			"пх" = list("в", "вх")
 		)
 	autohiss_extra_map = list(
 			"s" = list("z", "zz", "zzz"),
 			"ce" = list("z", "zz"),
 			"ci" = list("z", "zz"),
-			"v" = list("vv", "vvv")
+			"v" = list("vv", "vvv"),
+			"с" = list("з", "зз", "ззз"),
+			"се" = list("з", "зз"),
+			"си" = list("з", "зз"),
+			"в" = list("вв", "ввв")
 		)
 	autohiss_exempt = list(LANGUAGE_VAURCA)
 
 /datum/species/bug/type_b
 	autohiss_basic_map = list(
 			"f" = list("v","vh"),
-			"ph" = list("v", "vh")
+			"ph" = list("v", "vh"),
+			"ф" = list("в", "вх"),
+			"пх" = list("в", "вх")
 		)
 	autohiss_extra_map = list(
 			"s" = list("z", "zz", "zzz"),
 			"ce" = list("z", "zz"),
 			"ci" = list("z", "zz"),
-			"v" = list("vv", "vvv")
+			"v" = list("vv", "vvv"),
+			"с" = list("з", "зз", "ззз"),
+			"се" = list("з", "зз"),
+			"си" = list("з", "зз"),
+			"в" = list("вв", "ввв")
 		)
 	autohiss_exempt = list(LANGUAGE_VAURCA)
 
@@ -110,13 +124,20 @@
 	autohiss_basic_map = list(
 			"s" = list("s","ss","sss"),
 			"z" = list("z","zz","zzz"),
-			"ee" = list("ee","eee")
+			"ee" = list("ee","eee"),
+			"с" = list("с", "сс", "ссс"),
+			"з" = list("з", "зз", "ззз"),
+			"и" = list("и", "ии")
 		)
 	autohiss_extra_map = list(
 			"a" = list("a","aa", "aaa"),
 			"i" = list("i","ii", "iii"),
 			"o" = list("o","oo", "ooo"),
-			"u" = list("u","uu", "uuu")
+			"u" = list("u","uu", "uuu"),
+			"а" = list("а", "аа", "ааа"),
+			"и" = list("и", "ии", "иии"),
+			"о" = list("о", "оо", "ооо"),
+			"у" = list("у", "уу", "ууу")
 		)
 	autohiss_exempt = list(
 			LANGUAGE_ROOTSONG
