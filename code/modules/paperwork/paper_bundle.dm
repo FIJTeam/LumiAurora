@@ -135,7 +135,7 @@
 		var/obj/item/photo/P = W
 		send_rsc(user, P.img, "tmp_photo.png")
 
-		dat += "<html><head><title>[P.name]</title></head>" \
+		dat += "<html><head><meta charset=\"UTF-8\"><title>[P.name]</title></head>" \
 		+ "<body style='overflow:hidden'>" \
 		+ "<div> <img src='tmp_photo.png' width = '180'" \
 		+ "[P.scribble ? "<div> Written on the back:<br><i>[P.scribble]</i>" : null]" \
