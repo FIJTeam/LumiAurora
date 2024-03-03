@@ -239,7 +239,7 @@
 			return
 	user.set_machine(src)
 
-	var/dat = ""
+	var/dat = {"<meta charset=\"UTF-8\">"}
 	dat += "Particle Accelerator Control Panel<BR>"
 	dat += "<A href='byond://?src=[REF(src)];close=1'>Close</A><BR><BR>"
 	dat += "Status:<BR>"
