@@ -96,7 +96,7 @@
 			to_chat(user, SPAN_WARNING("There are no stored objects."))
 			return
 
-		var/dat = "<center><b>Recently Stored Objects</b></center><br><hr>"
+		var/dat = "<meta charset=\"UTF-8\"><center><b>Recently Stored Objects</b></center><br><hr>"
 		for(var/obj/item/I in frozen_items)
 			dat += " - [I.name]<br>"
 		dat += "<hr>"
@@ -104,6 +104,7 @@
 		var/datum/browser/cryoitems_win = new(user, "cryoitems", "Cryogenic Storage Log")
 		cryoitems_win.set_content(dat)
 		cryoitems_win.open()
+		return // добавить return для завершения блока
 
 	else if(href_list["item"])
 		if(!allow_items)
@@ -128,6 +129,7 @@
 			user.put_in_hands(I)
 		frozen_items -= I
 		log_and_message_admins("has retrieved \an [I] from \the [src]", user, get_turf(src))
+		return // добавить return для завершения блока
 
 	else if(href_list["allitems"])
 		if(!allow_items)
