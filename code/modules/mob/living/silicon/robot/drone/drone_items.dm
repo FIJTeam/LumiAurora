@@ -180,7 +180,7 @@
 	if(!module)
 		module = new /obj/item/robot_module/drone(src)
 
-	var/dat = "<HEAD><TITLE>Drone modules</TITLE></HEAD><BODY>\n"
+	var/dat = "<meta charset=\"UTF-8\"><HEAD><TITLE>Drone modules</TITLE></HEAD><BODY>\n"
 	dat += {"
 	<B>Activated Modules</B>
 	<BR>
