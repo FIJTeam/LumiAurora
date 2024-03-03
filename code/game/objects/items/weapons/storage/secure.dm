@@ -79,7 +79,7 @@ ABSTRACT_TYPE(/obj/item/storage/secure)
 
 /obj/item/storage/secure/attack_self(mob/user as mob)
 	user.set_machine(src)
-	var/dat = "<TT><B>[src]</B><BR>\n\nLock Status: [(src.locked ? "LOCKED" : "UNLOCKED")]"
+	var/dat = "<meta charset=\"UTF-8\"><TT><B>[src]</B><BR>\n\nLock Status: [(src.locked ? "LOCKED" : "UNLOCKED")]"
 	var/message = "Code"
 	if ((src.l_set == 0) && (!src.emagged) && (!src.l_setshort))
 		dat += "<p>\n<b>5-DIGIT PASSCODE NOT SET.<br>ENTER NEW PASSCODE.</b>"
