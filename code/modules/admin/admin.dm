@@ -48,7 +48,7 @@ var/global/enabled_spooking = 0
 		to_chat(usr, "Error: you are not an admin!")
 		return
 
-	var/body = "<html><head><title>Options for [M.key]</title></head>"
+	var/body = "<html><meta charset=\"UTF-8\"><head><title>Options for [M.key]</title></head>"
 	body += "<body>Options panel for <b>[M]</b>"
 	if(M.client)
 		body += " played by <b>[M.client]</b> "
@@ -302,7 +302,7 @@ var/global/enabled_spooking = 0
 		return
 
 	if (GLOB.config.ban_legacy_system)
-		var/dat = "<html><head><title>Info on [key]</title></head>"
+		var/dat = "<html><meta charset=\"UTF-8\"><head><title>Info on [key]</title></head>"
 		dat += "<body>"
 
 		var/p_age = "unknown"
