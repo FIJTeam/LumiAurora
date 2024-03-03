@@ -76,7 +76,7 @@ var/intercom_range_display_status = 0
 		if (isturf(C.loc))
 			CL += C
 
-	var/output = {"<B>CAMERA ANNOMALITIES REPORT</B><HR>
+	var/output = {"<meta charset="UTF-8"><B>CAMERA ANNOMALITIES REPORT</B><HR>
 <B>The following annomalities have been detected. The ones in red need immediate attention: Some of those in black may be intentional.</B><BR><ul>"}
 
 	for(var/obj/machinery/camera/C1 in CL)
