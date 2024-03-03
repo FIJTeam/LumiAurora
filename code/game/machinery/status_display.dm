@@ -111,8 +111,8 @@
 			if(!index1)
 				line1 = message1
 			else
-				line1 = copytext(message1+"|"+message1, index1, index1+CHARS_PER_LINE)
-				var/message1_len = length(message1)
+				line1 = copytext_char(message1+"|"+message1, index1, index1+CHARS_PER_LINE)
+				var/message1_len = length_char(message1)
 				index1 += SCROLL_SPEED
 				if(index1 > message1_len)
 					index1 -= message1_len
@@ -120,8 +120,8 @@
 			if(!index2)
 				line2 = message2
 			else
-				line2 = copytext(message2+"|"+message2, index2, index2+CHARS_PER_LINE)
-				var/message2_len = length(message2)
+				line2 = copytext_char(message2+"|"+message2, index2, index2+CHARS_PER_LINE)
+				var/message2_len = length_char(message2)
 				index2 += SCROLL_SPEED
 				if(index2 > message2_len)
 					index2 -= message2_len
@@ -131,7 +131,7 @@
 			set_picture(picture_state)
 			return 1
 		if(STATUS_DISPLAY_TIME)
-			message1 = "TIME"
+			message1 = "ВРЕМЯ"
 			message2 = worldtime2text()
 			update_display(message1, message2)
 			return 1
@@ -140,7 +140,7 @@
 /obj/machinery/status_display/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(mode != STATUS_DISPLAY_BLANK && mode != STATUS_DISPLAY_ALERT)
-		. += "The display says:<br>\t[sanitize(message1)]<br>\t[sanitize(message2)]"
+		. += "На дисплее написано:<br>\t[sanitize(message1)]<br>\t[sanitize(message2)]"
 
 /obj/machinery/status_display/proc/set_message(m1, m2)
 	if(m1)
