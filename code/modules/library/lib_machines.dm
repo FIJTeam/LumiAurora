@@ -35,7 +35,7 @@
 
 /obj/machinery/librarypubliccomp/attack_hand(var/mob/user)
 	usr.set_machine(src)
-	var/dat = "<HEAD><TITLE>Library Visitor</TITLE></HEAD><BODY>\n" // <META HTTP-EQUIV='Refresh' CONTENT='10'>
+	var/dat = "<meta charset=\"UTF-8\"><HEAD><TITLE>Library Visitor</TITLE></HEAD><BODY>\n" // <META HTTP-EQUIV='Refresh' CONTENT='10'>
 	switch(screenstate)
 		if(0)
 			dat += {"<h2>Search Settings</h2><br>
@@ -431,7 +431,7 @@
 
 /obj/machinery/libraryscanner/attack_hand(var/mob/user)
 	usr.set_machine(src)
-	var/dat = "<HEAD><TITLE>Scanner Control Interface</TITLE></HEAD><BODY>\n" // <META HTTP-EQUIV='Refresh' CONTENT='10'>
+	var/dat = "<meta charset=\"UTF-8\"><HEAD><TITLE>Scanner Control Interface</TITLE></HEAD><BODY>\n" // <META HTTP-EQUIV='Refresh' CONTENT='10'>
 	if(cache)
 		dat += "<FONT color=#005500>Data stored in memory.</FONT><br>"
 	else

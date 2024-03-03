@@ -248,7 +248,7 @@
 	return
 
 /datum/category_item/player_setup_item/general/flavor/proc/SetFlavourTextRobot(mob/user)
-	var/HTML = "<body>"
+	var/HTML = "<meta charset=\"UTF-8\"><body>"
 	HTML += "<tt><center>"
 	HTML += "<b>Set Robot Flavour Text</b> <hr />"
 	HTML += "<br></center>"
