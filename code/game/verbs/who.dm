@@ -3,7 +3,7 @@
 	set name = "Who"
 	set category = "OOC"
 
-	var/header = "<b>Current Players:</b><br>"
+	var/header = "<meta charset=\"UTF-8\"><b>Current Players:</b><br>"
 	var/count
 	var/msg
 	var/total_num = 0

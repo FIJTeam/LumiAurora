@@ -40,6 +40,7 @@
 
 	var/html = {"
 		<html>
+		<meta charset=\"UTF-8\">
 		<head>
 			<script src='view_variables.js'></script>
 			<title>[thing] ([REF(thing)] - [thing.type])</title>
