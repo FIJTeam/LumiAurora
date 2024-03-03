@@ -46,7 +46,7 @@
 	if (src.temp)
 		dat = "[src.temp]<BR><BR><A href='byond://?src=[REF(src)];temp=1'>Clear</A>"
 	else
-		dat = {"
+		dat += {"
 <B>Persistent Signal Locator</B><HR>
 Frequency:
 <A href='byond://?src=[REF(src)];freq=-10'>-</A>
