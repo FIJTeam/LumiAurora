@@ -86,7 +86,7 @@ GLOBAL_VAR_INIT(photo_count, 0)
 	if(use_check_and_message(usr, USE_ALLOW_NON_ADJACENT))
 		return
 
-	var/n_name = sanitizeSafe(input(usr, "What would you like to label the photo?", "Photo Labelling", null)  as text, MAX_NAME_LEN)
+	var/n_name = sanitize(copytext_char(input(usr, "What would you like to label the photo?", "Photo Labelling", name)  as text, 1, MAX_NAME_LEN))
 
 	if(use_check_and_message(usr, USE_ALLOW_NON_ADJACENT))
 		return

@@ -136,7 +136,7 @@
 			set_picture(picture_state)
 			return 1
 		if(STATUS_DISPLAY_TIME)
-			message1 = "-Time-"
+			message1 = "-Время-"
 			message2 = worldtime2text()
 			set_messages(message1, message2)
 			var/line1_metric
@@ -163,7 +163,7 @@
 	. = ..()
 	if(mode != STATUS_DISPLAY_BLANK && mode != STATUS_DISPLAY_ALERT)
 		if(message1_overlay || message2_overlay)
-			. += "The display says:"
+			. += "На дисплее написано:"
 			if(message1_overlay.message)
 				. += "<br>\t<tt>[html_encode(message1_overlay.message)]</tt>"
 			if(message2_overlay.message)
