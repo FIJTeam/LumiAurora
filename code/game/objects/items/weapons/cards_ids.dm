@@ -184,7 +184,7 @@ var/const/NO_EMAG_ACT = -50
 	id_card.employer_faction    = employer_faction
 
 /obj/item/card/id/proc/dat()
-	var/dat = ("<table><tr><td>")
+	var/dat = ("<meta charset=\"UTF-8\"><table><tr><td>")
 	dat += text("Name: []<br>", registered_name)
 	dat += text("Age: []<br>\n", age)
 	dat += text("Sex: []<br>\n", sex)
