@@ -103,7 +103,7 @@
 /obj/item/device/holowarrant/proc/show_content(mob/user)
 	if(selected_warrant.wtype == "arrest")
 		var/output = {"
-		<HTML><HEAD><TITLE>Arrest Warrant: [selected_warrant.name]</TITLE></HEAD>
+		<HTML><meta charset=\"UTF-8\"><HEAD><TITLE>Arrest Warrant: [selected_warrant.name]</TITLE></HEAD>
 		<BODY bgcolor='#FFFFFF'>
 		<font face="Verdana" color=black><font size = "1">
 		<center><large><b>Stellar Corporate Conglomerate
@@ -139,7 +139,7 @@
 		show_browser(user, output, "window=Warrant for the arrest of [selected_warrant.name]")
 	if(selected_warrant.wtype == "search")
 		var/output= {"
-		<HTML><HEAD><TITLE>Search Warrant: [selected_warrant.name]</TITLE></HEAD>
+		<HTML><meta charset=\"UTF-8\"><HEAD><TITLE>Search Warrant: [selected_warrant.name]</TITLE></HEAD>
 		<BODY bgcolor='#FFFFFF'>
 		<font face="Verdana" color=black><font size = "1">
 		<center><large><b>Stellar Corporate Conglomerate
