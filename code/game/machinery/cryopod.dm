@@ -96,7 +96,7 @@ GLOBAL_LIST_EMPTY(frozen_crew)
 		if(!length(GLOB.frozen_crew))
 			to_chat(user, SPAN_WARNING("Nothing has been stored recently."))
 			return
-		var/dat = "<center><b>Recently Stored [storage_type]</b></center><hr>"
+		var/dat = "<meta charset=\"UTF-8\"><center><b>Recently Stored [storage_type]</b></center><hr>"
 		for(var/person in GLOB.frozen_crew)
 			dat += " - [person]<br>"
 		dat += "<hr>"
@@ -112,7 +112,7 @@ GLOBAL_LIST_EMPTY(frozen_crew)
 			to_chat(user, SPAN_WARNING("There are no stored objects."))
 			return
 
-		var/dat = "<center><b>Recently Stored Objects</b></center><br><hr>"
+		var/dat = "<meta charset=\"UTF-8\"><center><b>Recently Stored Objects</b></center><br><hr>"
 		for(var/obj/item/I in frozen_items)
 			dat += " - [I.name]<br>"
 		dat += "<hr>"
