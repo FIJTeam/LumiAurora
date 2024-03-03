@@ -10,7 +10,8 @@
 	set desc = "Sets an extended description of your character's features."
 	set category = "IC"
 
-	var/HTML = "<body>"
+	var/HTML = "<head><meta http-equiv='Content-Type' content='text/html; charset=utf-8'></head>"
+	HTML += "<body>"
 	HTML += "<tt><center>"
 	HTML += "<b>Update Flavour Text</b> <hr />"
 	HTML += "<br></center>"
