@@ -207,7 +207,7 @@
 	id_card.employer_faction    = employer_faction
 
 /obj/item/card/id/proc/dat()
-	var/dat = ("<table><tr><td>")
+	var/dat = ("<meta charset=\"UTF-8\"><table><tr><td>")
 	dat += "Name: [registered_name]<br>"
 	dat += "Age: [age]<br>\n"
 	dat += "Sex: [sex]<br>\n"
