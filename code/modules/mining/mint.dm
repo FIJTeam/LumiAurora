@@ -57,7 +57,7 @@
 				qdel(O)
 
 /obj/machinery/mineral/mint/attack_hand(user)
-	var/dat = "<b>Coin Press</b><br>"
+	var/dat = "<meta charset=\"UTF-8\"><b>Coin Press</b><br>"
 
 	if(!input)
 		dat += text("input connection status: ")
