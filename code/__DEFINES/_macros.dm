@@ -131,10 +131,11 @@
 #define to_world(message)                                   to_chat(world, message)
 #define sound_to(target, sound)                             to_target(target, sound)
 #define to_save(handle, value)                              to_target(handle, value) //semantics postport: what did they mean by this
-#define show_browser(target, browser_content, browser_name) to_target(target, browse(browser_content, browser_name))
+#define show_browser(target, browser_content, browser_name) to_target(target, browse(set_html_charset(browser_content), browser_name))
 #define send_rsc(target, content, title)                    to_target(target, browse_rsc(content, title))
 #define send_output(target, msg, control)                   to_target(target, output(msg, control))
 #define send_link(target, url)                              to_target(target, link(url))
+#define set_html_charset(content) replacetext_char(content, "<head>", "<head><meta charset='utf-8'>")
 
 #define CanInteract(user, state) (CanUseTopic(user, state) == STATUS_INTERACTIVE)
 #define CanInteractWith(user, target, state) (target.CanUseTopic(user, state) == STATUS_INTERACTIVE)
