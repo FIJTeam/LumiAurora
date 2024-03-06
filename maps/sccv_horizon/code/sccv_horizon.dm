@@ -11,10 +11,10 @@
 		//Z3
 		list(ZTRAIT_STATION = TRUE, ZTRAIT_UP = FALSE, ZTRAIT_DOWN = TRUE),
 		//Centcomm
-		ZTRAITS_CENTCOM
+		list(ZTRAITS_CENTCOM)
 	)
 
-	lobby_icons = list('icons/misc/titlescreens/sccv_horizon/sccv_horizon.dmi', 'icons/misc/titlescreens/aurora/synthetics.dmi', 'icons/misc/titlescreens/aurora/tajara.dmi', 'icons/misc/titlescreens/aurora/vaurca.dmi')
+	lobby_icons = list('icons/misc/titlescreens/sccv_horizon/lumiaurora_sccv_horizon.dmi')
 	lobby_transitions = 10 SECONDS
 
 	admin_levels = list(4)
