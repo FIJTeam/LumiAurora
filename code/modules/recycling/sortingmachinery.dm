@@ -138,7 +138,7 @@
 		else if(isrobot(user))
 			var/obj/item/gripper/G = user.get_active_hand()
 			if(istype(G))
-				G.drop(src, FALSE)
+				G.drop(src, user, FALSE)
 				if(is_type_in_list(wrapped, G.can_hold))
 					G.grip_item(wrapped, user, FALSE)
 				else
@@ -259,7 +259,7 @@
 	slot_flags = SLOT_BELT
 
 /obj/item/device/destTagger/proc/openwindow(mob/user as mob)
-	var/dat = "<tt><center><h1><b>TagMaster 2.3</b></h1></center>"
+	var/dat = "<meta charset=\"UTF-8\"><tt><center><h1><b>TagMaster 2.3</b></h1></center>"
 
 	dat += "<table style='width:100%; padding:4px;'><tr>"
 	for(var/i = 1, i <= SSdisposals.tagger_locations.len, i++)

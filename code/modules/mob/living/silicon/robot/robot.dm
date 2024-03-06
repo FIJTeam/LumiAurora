@@ -326,7 +326,7 @@
 				to_chat(src, SPAN_WARNING("Custom Sprite Sheet does not contain a valid icon_state for [sprite.synthicon]-[mod_type]"))
 		else
 			icontype = module_sprites[1]
-		icon_state = module_sprites[icontype][ROBOT_CHASSIS]
+		icon_state = module_sprites?[icontype]?[ROBOT_CHASSIS]
 	return module_sprites
 
 /mob/living/silicon/robot/proc/pick_module(var/set_module)
@@ -338,7 +338,7 @@
 		return
 	var/list/modules = list()
 	modules.Add(GLOB.robot_module_types)
-	if((crisis_override && security_level == SEC_LEVEL_RED) || security_level == SEC_LEVEL_DELTA || crisis == TRUE)
+	if((crisis_override && GLOB.security_level == SEC_LEVEL_RED) || GLOB.security_level == SEC_LEVEL_DELTA || crisis == TRUE)
 		to_chat(src, SPAN_WARNING("Crisis mode active. Combat module available."))
 		modules += "Combat"
 	mod_type = tgui_input_list(src, "Please, select a module!", "Robot", modules)
@@ -421,7 +421,7 @@
 	if(!is_component_functioning("diagnosis unit"))
 		return null
 
-	var/dat = "<HEAD><TITLE>[src.name] Self-Diagnosis Report</TITLE></HEAD><BODY>\n"
+	var/dat = "<meta charset=\"UTF-8\"><HEAD><TITLE>[src.name] Self-Diagnosis Report</TITLE></HEAD><BODY>\n"
 	for(var/V in components)
 		var/datum/robot_component/C = components[V]
 		dat += "<b>[capitalize_first_letters(C.name)]</b><br><table><tr><td>Brute Damage:</td><td>[C.brute_damage]</td></tr><tr><td>Electronics Damage:</td><td>[C.electronics_damage]</td></tr><tr><td>Powered:</td><td>[(!C.idle_usage || C.is_powered()) ? "Yes" : "No"]</td></tr><tr><td>Toggled:</td><td>[ C.toggled ? "Yes" : "No"]</td></table>"
@@ -865,7 +865,7 @@
 	if(!module)
 		pick_module()
 		return
-	var/dat = "<HEAD><TITLE>Modules</TITLE></HEAD><BODY>\n"
+	var/dat = "<meta charset=\"UTF-8\"><HEAD><TITLE>Modules</TITLE></HEAD><BODY>\n"
 	dat += {"
 	<B>Activated Modules</B>
 	<BR>
@@ -1118,8 +1118,8 @@
 	if(!icontype)
 		return
 
-	icon_state = module_sprites[icontype][ROBOT_CHASSIS]
-	if(!module_sprites[icontype][ROBOT_ICON])
+	icon_state = module_sprites?[icontype]?[ROBOT_CHASSIS]
+	if(!module_sprites?[icontype]?[ROBOT_ICON])
 		icon = initial(icon)
 	icon_selected = TRUE
 

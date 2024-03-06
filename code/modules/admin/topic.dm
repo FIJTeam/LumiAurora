@@ -410,7 +410,7 @@
 
 		if(ROUND_IS_STARTED)
 			return alert(usr, "The game has already started.", null, null, null, null)
-		var/dat = {"<B>What mode do you wish to play?</B><HR>"}
+		var/dat = {"<meta charset=\"UTF-8\"><B>What mode do you wish to play?</B><HR>"}
 		for(var/mode in GLOB.config.modes)
 			dat += {"<A href='?src=\ref[src];c_mode2=[mode]'>[GLOB.config.mode_names[mode]]</A><br>"}
 		dat += {"<A href='?src=\ref[src];c_mode2=secret'>Secret</A><br>"}
@@ -426,7 +426,7 @@
 			return alert(usr, "The game has already started.", null, null, null, null)
 		if(GLOB.master_mode != ROUNDTYPE_STR_SECRET && GLOB.master_mode != ROUNDTYPE_STR_MIXED_SECRET)
 			return alert(usr, "The game mode has to be secret!", null, null, null, null)
-		var/dat = {"<B>What game mode do you want to force secret to be? Use this if you want to change the game mode, but want the players to believe it's secret. This will only work if the current game mode is secret.</B><HR>"}
+		var/dat = {"<meta charset=\"UTF-8\"><B>What game mode do you want to force secret to be? Use this if you want to change the game mode, but want the players to believe it's secret. This will only work if the current game mode is secret.</B><HR>"}
 		for(var/mode in GLOB.config.modes)
 			dat += {"<A href='?src=\ref[src];f_secret2=[mode]'>[GLOB.config.mode_names[mode]]</A><br>"}
 		dat += {"<A href='?src=\ref[src];f_secret2=secret'>Random (default)</A><br>"}
