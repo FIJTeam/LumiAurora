@@ -47,6 +47,7 @@ var/list/admin_verbs_admin = list(
 	/client/proc/cmd_admin_local_narrate,	//sends text to all mobs within 7 tiles of src.mob
 	/client/proc/cmd_admin_world_narrate,	//sends text to all players with no padding,
 	/client/proc/cmd_admin_create_centcom_report,
+	/client/proc/cmd_offer_to_ghosts_to_be_somebody, //offer mob to ghosts
 	/client/proc/check_ai_laws,			//shows AI and borg laws,
 	/client/proc/rename_silicon,		//properly renames silicons,
 	/client/proc/manage_silicon_laws,
