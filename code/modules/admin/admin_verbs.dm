@@ -21,6 +21,7 @@ var/list/admin_verbs_admin = list(
 	/datum/admins/proc/announce,		/*priority announce something to all clients.*/
 	/client/proc/colorooc,				/*allows us to set a custom colour for everythign we say in ooc*/
 	/client/proc/admin_ghost,			/*allows us to ghost/reenter body at will*/
+	/client/proc/cmd_offer_to_ghosts_to_be_somebody, //offer mob to ghosts
 	/client/proc/toggle_view_range,		/*changes how far we can see*/
 	/client/proc/cmd_admin_pm_context,	/*right-click adminPM interface*/
 	/client/proc/cmd_admin_pm_panel,	/*admin-pm list*/
