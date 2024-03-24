@@ -118,21 +118,21 @@ var/list/floating_chat_colors = list()
 	var/other
 	switch(fontsize)
 		if(GENERATE_FLOATING_TEXT_SMALL)
-			font_family = "Spess Font"
+			font_family = "'MS Serif'"
 			font_size = 6
 			other = "-dm-text-outline: 1px black sharp; line-height: 1.4;"
 		if(GENERATE_FLOATING_TEXT_MEDIUM)
-			font_family = "Grand9K Pixel"
+			font_family = "'MS Serif'"
 			font_size = 6
 			other = "-dm-text-outline: 1px black sharp;"
 		if(GENERATE_FLOATING_TEXT_LARGE)
-			font_family = "Grand9K Pixel"
+			font_family = "'MS Serif'"
 			font_size = 12
 			other = "-dm-text-outline: 1.2px black sharp;"
 		else
 			crash_with("Wrong size specified, use one of the defines!")
 
-	var/complete_text = "<span class='center'><span style='font-family: \"[font_family]\"; font-size: [font_size]pt; [other] [style] text-align: center;'>[message]</span></span>"
+	var/complete_text = "<span class='center'><span style=\"font-family: [font_family]; font-size: [font_size]pt; [other] [style] text-align: center;\">[message]</span></span>"
 
 	I.maptext = complete_text
 
