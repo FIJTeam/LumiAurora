@@ -119,11 +119,11 @@ var/list/floating_chat_colors = list()
 	switch(fontsize)
 		if(GENERATE_FLOATING_TEXT_SMALL)
 			font_family = "'MS Serif'"
-			font_size = 6
+			font_size = 7
 			other = "-dm-text-outline: 1px black sharp; line-height: 1.4;"
 		if(GENERATE_FLOATING_TEXT_MEDIUM)
 			font_family = "'MS Serif'"
-			font_size = 6
+			font_size = 8
 			other = "-dm-text-outline: 1px black sharp;"
 		if(GENERATE_FLOATING_TEXT_LARGE)
 			font_family = "'MS Serif'"
