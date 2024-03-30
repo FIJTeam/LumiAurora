@@ -23,6 +23,6 @@
 							M.ckey = C.ckey
 							var/datum/tgui_window/window = tgui_windows["statbrowser"]
 							window.reinitialize()
-							M.lay_down()
+							M.resting = 0
 
 
