@@ -97,8 +97,8 @@
 		return "sings"
 	if(whisper)
 		return "whispers"
-	var/ending = copytext(message, length(message))
-	var/pre_ending = copytext(message, length(message) - 1, length(message))
+	var/ending = copytext_char(message, length(message))
+	var/pre_ending = copytext_char(message, length(message) - 1, length(message))
 	if(ending == "!")
 		if(pre_ending == "!" || pre_ending == "?")
 			. = pick("shouts", "yells")
@@ -122,7 +122,7 @@
 	return get_turf(src)
 
 /mob/proc/say_test(var/text)
-	var/ending = copytext(text, length(text))
+	var/ending = copytext_char(text, length(text))
 	if (ending == "?")
 		return "1"
 	else if (ending == "!")
@@ -133,11 +133,11 @@
 //returns the message mode string or null for no message mode.
 //standard mode is the mode returned for the special ';' radio code.
 /mob/proc/parse_message_mode(var/message, var/standard_mode="headset")
-	if(length(message) >= 1 && copytext(message,1,2) == ";")
+	if(length(message) >= 1 && copytext_char(message,1,2) == ";")
 		return standard_mode
 
 	if(length(message) >= 2)
-		var/channel_prefix = copytext(message, 1 ,3)
+		var/channel_prefix = copytext_char(message, 1 ,3)
 		return department_radio_keys[channel_prefix]
 
 	return null
@@ -154,7 +154,7 @@
 	SHOULD_BE_PURE(TRUE)
 	RETURN_TYPE(/datum/language)
 
-	var/prefix = copytext(message,1,2)
+	var/prefix = copytext_char(message,1,2)
 	if(length(message) >= 1 && prefix == "!")
 		return GLOB.all_languages[LANGUAGE_NOISE]
 
@@ -162,14 +162,14 @@
 	if(length(message) >= 2 && is_language_prefix(prefix))
 
 		//Get the first 2 letters after the prefix (position 2 and 3)
-		var/language_prefix = lowertext(copytext(message, 2, 4))
+		var/language_prefix = lowertext(copytext_char(message, 2, 4))
 
 		//Try to grab a language associated with said prefix
 		var/datum/language/L = GLOB.language_keys[language_prefix]
 
 		//If we didn't find a language, or we found one we cannot speak, try with a single letter identification
 		if(!istype(L) || (istype(L) && !can_speak(L)))
-			language_prefix = lowertext(copytext(message, 2, 3))
+			language_prefix = lowertext(copytext_char(message, 2, 3))
 			L = GLOB.language_keys[language_prefix]
 
 		//Check if we can speak the language, otherwise return null
