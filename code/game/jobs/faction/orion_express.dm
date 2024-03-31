@@ -1,12 +1,13 @@
 /datum/faction/orin_express
 	name = "Orion Express"
-	description = {"<p>
-	Founded in 2464, the Orion Express is a corporation designed to handle logistics for the
-	Stellar Corporate Conglomerate in the wake of the Phoron Scarcity and the sudden issues
-	the Conglomeration of the megacorporations presented. It consists of its main branch, dedicated
-	to cargo services and transport, but also features a fledgling robotics division, mainly focused
-	on industrial synthetics to aid in its logistics missions. The Orion Express is expected to become an
-	integral part of the Stellar Corporate Conglomerate's future through delivering supplies and merchandise throughout the Orion Spur.
+	description = {"<p><meta charset=\"UTF-8\">
+	Основанная в 2464 году, 'Orion Express' - корпорация, которая была призванная заниматься логистикой
+    для звёздного корпоративного конгломерата после дефицита форона и внезапно
+    возникших проблем с объединением мегакорпораций. В состав компании входит основное отделение,
+	занимающееся грузовыми перевозками, а также подразделение робототехники,
+	специализирующееся в основном на промышленной синтетике для помощи в логистических операциях.
+	Ожидается, что 'Orion Express' станет неотъемлемой частью будущего
+	звездного корпоративного конгломерата благодаря доставке грузов и товаров по всей территории рукава Ориона.
 	</p>"}
 	departments = {"Operations<br>Service"}
 	title_suffix = "Orion"
