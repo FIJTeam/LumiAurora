@@ -1,12 +1,12 @@
 /datum/faction/nano_trasen
 	name = "NanoTrasen"
-	description = {"<p>
-	Considered the largest megacorporation within the Orion Spur, many will find themselves doing the biddings of NanoTrasen.
-	Initially a biotechnical research company, it rapidly grew in size after the discovery of phoron.
-	NanoTrasen's continued monopoly on the resource catapulted it into the limelight, where it has remained for the last forty-odd years.
-	During the Phoron Scarcity, NanoTrasen's power has since begun to waver, resulting in their profit margins diminishing considerably.
-	Nonetheless, NanoTrasen has managed to secure itself as a crucial member of the newly-founded Stellar Corporate Conglomerate
-	allowing themselves to remain as a dominant corporate presence within the Orion Spur.
+	description = {"<p><meta charset=\"UTF-8\">
+	Считаясь крупнейшей мегакорпорацией в рукаве Ориона, многие из них окажутся подчиняющимися приказам NanoTrasen.
+	Изначально компания занималась биотехническими исследованиями, но после открытия форона она быстро выросла в размерах.
+	Монополия компании NanoTrasen на этот ресурс вывела её в центр внимания, где она и остаётся на протяжении сорока с лишним лет.
+	Во время дефицита форона сила NanoTrasen начала колебаться, что привело к значительному снижению прибыли.
+	Тем не менее, NanoTrasen удалось стать одним из важнейших членов недавно основанного звёздного корпоративного конгломерата,
+	позволяя себе оставаться доминирующей корпорацией в рукаве Ориона.
 	</p>"}
 	departments = {"Medical<br>Research<br>Service"}
 	title_suffix = "NT"
