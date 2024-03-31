@@ -485,12 +485,12 @@
 	dat += "</tr>"
 	dat += "</table><center><hr/>"
 
-	dat += "You can learn more about this faction on <a href='?src=\ref[user.client];JSlink=wiki;wiki_page=[replacetext(faction.name, " ", "_")]'>the wiki</a>."
+	dat += "Подробнее об этой фракции вы можете узнать на <a href='?src=\ref[user.client];JSlink=wiki;wiki_page=[replacetext(faction.name, " ", "_")]'>вики</a>."
 
 	if (selected_faction == pref.faction)
-		dat += "<br>\[Faction selected\]"
+		dat += "<br>\[Фракция выбрана\]"
 	else if (faction.can_select(pref,user))
-		dat += "<br>\[<a href='?src=\ref[src];faction_select=[html_encode(selected_faction)]'>Select faction</a>\]"
+		dat += "<br>\[<a href='?src=\ref[src];faction_select=[html_encode(selected_faction)]'>Выбрать фракцию</a>\]"
 	else
 		dat += "<br><span class='warning'>[faction.get_selection_error(pref, user)]</span>"
 	dat += "</center>"
