@@ -56,13 +56,13 @@
 	var/datum/species/S = prefs.get_species_datum()
 
 	if (!S)
-		return "No valid species selected."
+		return "Не выбрана необходимая раса."
 
 	if (!is_type_in_typecache(S, allowed_species_types))
-		return "Invalid species selected."
+		return "Выбрана неверная раса."
 
 	if (!is_visible(user))
-		return "This faction is not available to you."
+		return "Эта фракция вам недоступна."
 
 	return null
 
@@ -76,14 +76,14 @@
 	var/objective
 	switch(mission_level)
 		if(REPRESENTATIVE_MISSION_HIGH)
-			objective = pick("Assist your contractor in smuggling [rand(1,4)] items of value",
-							"Collect evidence of [SSatlas.current_map.company_short] being unfair or oppressive against your contractors to be used as leverage in future talks")
+			objective = pick("Содействуйте контрактнику в контрабанде [rand(1,4)] предметов, представляющих ценность",
+							"Соберите доказательства что [SSatlas.current_map.company_short] ведет себя несправедливо или деспотично по отношению к вашим контрактникам, чтобы использовать их в качестве рычага в будущих переговорах")
 		if(REPRESENTATIVE_MISSION_MEDIUM)
-			objective = pick("Convince [rand(1,3)] non-[name] employees to join [name] instead",
-							"Have [rand(1,3)] of your contractors write down their grievances with the company, and present the report to [SSatlas.current_map.station_name] command.")
+			objective = pick("Убедите [rand(1,3)] не-[name] сотрудников, чтобы присоединиться к [name]",
+							"Пусть [rand(1,3)] ваших контрактников запишут свои претензии к компании и представят отчет командованию [SSatlas.current_map.station_name].")
 		else
-			objective = pick("Collect [rand(3,7)] pictures of secure areas",
-							"Make sure that [rand(2,4)] complaints related to contractors are solved on the [SSatlas.current_map.station_name]")
+			objective = pick("Соберите [rand(3,7)] фотографии безопасных зон",
+							"Убедитесь, что [rand(2,4)] жалобы, связанные с контрактниками, решаются на [SSatlas.current_map.station_name]")
 
 	return objective
 

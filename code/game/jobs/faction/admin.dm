@@ -1,7 +1,7 @@
 /datum/faction/admin
 	name = "Admin Jobs"
-	description = {"<p>
-	This faction is for IC administrative jobs used by staff.
+	description = {"<p><meta charset=\"UTF-8\">
+	Эта фракция предназначена для IC вмешательства в раунд со стороны администрации.
 	</p>"}
 
 	departments = {"Command"}

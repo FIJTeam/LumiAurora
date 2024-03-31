@@ -1,12 +1,12 @@
 /datum/faction/unaffiliated
 	name = "Independent"
-	description = {"<p>
-	For individuals not necessarily tied to any of the large mega corporations lording
-	over human space, the mark of "independent" can open as many doors as it is likely to
-	close. You would often see people lacking a concrete affiliation popping up as
-	reporters, journalists, individual traders. Their presence, though often an inconvenience
-	for the mega corporations, is often necessary to forward the facade of economic freedom
-	that Tau Ceti reports to have.
+	description = {"<p><meta charset=\"UTF-8\">
+	Для частных лиц, не обязательно связанных с какой-либо из крупных мегакорпораций, стоящих во главе
+	над человеческим пространством, отметка 'независимый' может открыть столько дверей, сколько может
+	закрыть. Часто можно было увидеть людей, не имеющих конкретной принадлежности, которые появлялись как
+	репортеры, журналисты, отдельные торговцы. Их присутствие, хотя зачастую и доставляет неудобства
+	для мегакорпораций, зачастую они необходимы для создания видимости экономической свободы,
+	который, как сообщается, есть на Тау-Кита.
 	</p>"}
 	departments = {"Civilian"}
 	allowed_role_types = INDEP_ROLES

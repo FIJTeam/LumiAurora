@@ -1,13 +1,13 @@
 /datum/faction/pmc
 	name = "Private Military Contracting Group"
-	description = {"<p>
-	The Private Military Contracting Group is a coalition of security and medical contractors;
-	borne from the necessity of protecting the Stellar Corporate Conglomerate and its holdings.
-	Following the ever-growing corporate empire, mercenaries and contractors from all across the spur are deployed accordingly;
-	from mere office buildings to outposts in the Corporate Reconstruction Zone.
-	Unlike the other members of the Corporate Conglomerate, the Private Military Contracting Group has few employees of its own.
-	Only some liaisons and bureaucrats work behind the scenes to hire and manage the contractors;
-	the rest of its members are part of several organizations contracted to supply the PMCG.
+	description = {"<p><meta charset=\"UTF-8\">
+	Группа частных военных подрядчиков - это коалиция контрактников, работающих в сфере безопасности и медицины;
+	возникла из необходимости защиты звёздного корпоративного конгломерата и его владений.
+	Вслед за постоянно растущей корпоративной империей сюда направляются наемники и подрядчики со всех уголков рукава Ориона;
+	от простых офисных зданий до форпостов в зоне корпоративной реконструкции.
+	В отличие от других членов корпоративного конгломерата, у группы частных военных подрядчиков мало собственных сотрудников.
+	Только некоторые связные и бюрократы работают за кулисами, нанимая и управляя контрактниками;
+	остальные члены входят в состав нескольких организаций, заключивших контракт на снабжение 'PMCG'.
 	</p>"}
 	departments = {"Medical<br>Security"}
 	title_suffix = "PMCG"
