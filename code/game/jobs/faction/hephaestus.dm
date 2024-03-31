@@ -1,14 +1,14 @@
 /datum/faction/hephaestus_industries
 	name = "Hephaestus Industries"
-	description = {"<p>
-	Hephaestus Industries, a sprawling and diverse mega-corporation
-	focused on engineering and manufacturing on a massive scale, found their start
-	as a conglomerate of several aerospace companies in the 22nd century. Initially
-	funded by sales of new designs for warp technology, the company fell on hard times
-	during the Second Great Depression in the late 23rd century. Receiving bailouts
-	from the Sol Alliance and securing several crucial production contracts, they have slowly
-	worked their way to become the dominant manufacturing mega-corporation in the
-	Sol Alliance, pioneering interstellar logistics and construction on an awe-inspiring scale.
+	description = {"<p><meta charset=\"UTF-8\">
+	'Hephaestus Industries', разросшаяся и разнообразная мегакорпорация
+	ориентированные на проектирование и производство в огромных масштабах, нашла своё начало
+	как конгломерат нескольких аэрокосмических компаний в 22 веке. Изначально
+	финансируемая за счет продаж новых разработок в области технологии варпа, компания переживала трудные времена
+	во время второй Великой депрессии в конце 23 века. Однако получила спасение
+	от Солнечного Альянса и получив несколько важнейших контрактов на добычу, они постепенно
+	проделали путь к тому, чтобы стать доминирующей производственной мегакорпорацией в
+	Солнечном Альянсе, а также новатором в межзвездной логистике и строительстве в потрясающих масштабах.
 	</p>"}
 	departments = {"Engineering<br>Operations"}
 	title_suffix = "Hepht"
