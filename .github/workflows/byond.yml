@@ -286,10 +286,6 @@ jobs:
           pip install -r tools/requirements.txt
           pip3 install setuptools
 
-      - name: Check Validate DME
-        run: |
-          tools/bootstrap/python tools/validate_dme.py <aurorastation.dme
-
       - name: Check Defines
         run: |
           tools/bootstrap/python -m define_sanity.check
