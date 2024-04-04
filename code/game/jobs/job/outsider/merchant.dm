@@ -5,7 +5,7 @@
 	department_flag = SERVICE
 	total_positions = 0
 	spawn_positions = 0
-	supervisors = "yourself and the market"
+	supervisors = "Вы и рынок"
 	minimal_player_age = 10
 	economic_modifier = 5
 
@@ -25,7 +25,7 @@
 	blacklisted_species = list(SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 
 /datum/job/merchant/announce(mob/living/carbon/human/H)
-	to_chat(H,"You are a merchant heading to the [station_name()] to make profit, your main objective is to sell and trade with the crew.")
+	to_chat(H,"Вы - торговец, направляющийся на [station_name()] чтобы получить прибыль, ваша главная цель - продавать и торговать с экипажем.")
 
 /datum/job/merchant/New()
 	..()

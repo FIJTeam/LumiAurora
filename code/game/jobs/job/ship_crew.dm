@@ -6,8 +6,7 @@
 	faction = "Station"
 	total_positions = -1
 	spawn_positions = -1
-	intro_prefix = "an"
-	supervisors = "absolutely everyone"
+	supervisors = "абсолютно все"
 	selection_color = "#949494"
 	economic_modifier = 1
 	access = list()			//See /datum/job/assistant/get_access()
@@ -103,7 +102,7 @@
 	faction = "Station"
 	total_positions = -1
 	spawn_positions = -1
-	supervisors = "any authority figure"
+	supervisors = "любая авторитетная фигура"
 	selection_color = "#949494"
 	economic_modifier = 1
 	access = list()
@@ -130,7 +129,7 @@
 	faction = "Station"
 	total_positions = -1
 	spawn_positions = -1
-	supervisors = "any authority figure"
+	supervisors = "любая авторитетная фигура"
 	selection_color = "#949494"
 	economic_modifier = 1
 	access = list()
