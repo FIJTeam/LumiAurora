@@ -23,7 +23,7 @@
 	var/current_positions = 0
 
 	/// Prefix for the introduction ("As [intro prefix] [title], you answer to...")
-	var/intro_prefix = "a"
+	var/intro_prefix = "Как"
 	/// Supervisors, who this person answers to directly.
 	var/supervisors = null
 	/// Selection screen color
