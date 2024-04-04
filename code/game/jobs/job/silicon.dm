@@ -7,8 +7,7 @@
 	total_positions = null // Not used by AI, see get_total_positions and is_position_available below
 	spawn_positions = null // Not used by AI, see get_spawn_positions below
 	selection_color = "#6c5b73"
-	intro_prefix = "the"
-	supervisors = "your laws"
+	supervisors = "ваши законы"
 	minimal_player_age = 7
 	account_allowed = 0
 	economic_modifier = 0
@@ -42,7 +41,7 @@
 	faction = "Station"
 	total_positions = 2
 	spawn_positions = 2
-	supervisors = "your laws and the AI"	//Nodrak
+	supervisors = "ваши законы и Мастер-ИИ"	//Nodrak
 	selection_color = "#6c5b73"
 	minimal_player_age = 1
 	alt_titles = list("Android", "Robot")

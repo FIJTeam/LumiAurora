@@ -6,8 +6,7 @@
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
-	intro_prefix = "the"
-	supervisors = "the captain"
+	supervisors = "капитан"
 	selection_color = "#a44799"
 	economic_modifier = 15
 
@@ -67,7 +66,7 @@
 	faction = "Station"
 	total_positions = 3
 	spawn_positions = 3
-	supervisors = "the research director"
+	supervisors = "директор исследований"
 	selection_color = "#a44799"
 	economic_modifier = 7
 
@@ -122,7 +121,7 @@
 	alt_outfits = list("Anomalist" = "/obj/outfit/job/scientist/anomalist")
 	total_positions = 2
 	spawn_positions = 2
-	supervisors = "the research director"
+	supervisors = "директор исследований"
 	selection_color = "#a44799"
 	economic_modifier = 7
 
@@ -171,7 +170,7 @@
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "the research director"
+	supervisors = "директор исследований"
 	selection_color = "#a44799"
 	economic_modifier = 7
 
@@ -203,7 +202,7 @@
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "the research director"
+	supervisors = "директор исследований"
 	selection_color = "#a44799"
 	economic_modifier = 7
 
@@ -236,7 +235,7 @@
 	faction = "Station"
 	total_positions = 3
 	spawn_positions = 3
-	supervisors = "the Research Director"
+	supervisors = "директор исследований"
 	selection_color = "#a44799"
 	access = list(ACCESS_RESEARCH, ACCESS_TOX)
 	minimal_access = list(ACCESS_RESEARCH, ACCESS_TOX)

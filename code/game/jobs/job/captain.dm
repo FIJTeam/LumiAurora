@@ -8,8 +8,7 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
-	intro_prefix = "the"
-	supervisors = "company officials and Corporate Regulations"
+	supervisors = "руководство компании и корпоративные правила"
 	selection_color = "#114dc1"
 	access = list() 			//See get_access()
 	minimal_access = list() 	//See get_access()
@@ -84,8 +83,7 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
-	intro_prefix = "the"
-	supervisors = "the captain"
+	supervisors = "капитан"
 	selection_color = "#1e59c9"
 	minimal_player_age = 10
 	economic_modifier = 10
@@ -143,8 +141,7 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	faction = "Station"
 	total_positions = 3
 	spawn_positions = 3
-	intro_prefix = "the"
-	supervisors = "the executive officer and the captain"
+	supervisors = "исполнительный офицер и капитан"
 	selection_color = "#2b5bb5"
 	minimal_player_age = 20
 	economic_modifier = 5
