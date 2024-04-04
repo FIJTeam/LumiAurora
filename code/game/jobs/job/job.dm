@@ -12,7 +12,7 @@
 	var/spawn_positions = 0               // How many players can spawn in as this job
 	var/current_positions = 0             // How many players have this job
 
-	var/intro_prefix = "a"
+	var/intro_prefix = "Как"
 	var/supervisors = null                // Supervisors, who this person answers to directly
 	var/selection_color = "#5d6a67"     // Selection screen color
 	var/list/departments = list()         // List of departments this job is a part of. Keys are departments, values are a bit field that indicate special roles of that job within the department (like whether they are a head/supervisor of that department).
