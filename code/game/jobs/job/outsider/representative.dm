@@ -6,7 +6,7 @@
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "company officials"
+	supervisors = "руководство компании"
 	selection_color = "#6186cf"
 
 	minimum_character_age = list(
@@ -77,7 +77,7 @@
 	faction = "Station"
 	total_positions = 2
 	spawn_positions = 2
-	supervisors = "company officials"
+	supervisors = "руководство компании"
 	selection_color = "#6186cf"
 	economic_modifier = 15
 
@@ -175,7 +175,7 @@
 	faction = "Station"
 	total_positions = 2
 	spawn_positions = 2
-	supervisors = "your embassy"
+	supervisors = "ваше посольство"
 	selection_color = "#6186cf"
 	economic_modifier = 15
 
