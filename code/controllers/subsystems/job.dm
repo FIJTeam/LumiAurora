@@ -360,14 +360,14 @@ SUBSYSTEM_DEF(jobs)
 		if(LAZYLEN(spawn_in_storage))
 			EquipItemsStorage(H, H.client.prefs, spawn_in_storage)
 
-	to_chat(H, "<B>You are [job.get_total_positions() == 1 ? "the" : "a"] [alt_title ? alt_title : rank].</B>")
+	to_chat(H, "<B><meta charset=\"UTF-8\">Вы [job.get_total_positions() == 1 ? "теперь" : "сейчас"] [alt_title ? alt_title : rank].</B>")
 
 	if(istype(H)) //give humans wheelchairs, if they need them.
 		if(H.needs_wheelchair())
 			H.equip_wheelchair()
 
 	if(job.supervisors)
-		to_chat(H, "<b>As [job.intro_prefix] [alt_title ? alt_title : rank] you answer directly to [job.supervisors]. Special circumstances may change this.</b>")
+		to_chat(H, "<b><meta charset=\"UTF-8\">[job.intro_prefix] [alt_title ? alt_title : rank] вы непосредственно отвечаете перед [job.supervisors]. Особые обстоятельства могут изменить это.</b>")
 
 	//Gives glasses to the vision impaired
 	if(H.disabilities & NEARSIGHTED)
