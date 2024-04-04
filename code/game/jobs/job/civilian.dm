@@ -6,7 +6,7 @@
 	faction = "Station"
 	total_positions = 2
 	spawn_positions = 2
-	supervisors = "the executive officer"
+	supervisors = "исполнительный офицер"
 	selection_color = "#90524b"
 
 	minimum_character_age = list(
@@ -52,7 +52,7 @@
 	faction = "Station"
 	total_positions = 2
 	spawn_positions = 2
-	supervisors = "the executive officer"
+	supervisors = "исполнительный офицер"
 	selection_color = "#90524b"
 
 	minimum_character_age = list(
@@ -102,7 +102,7 @@
 	faction = "Station"
 	total_positions = 2
 	spawn_positions = 2
-	supervisors = "the executive officer"
+	supervisors = "исполнительный офицер"
 	selection_color = "#90524b"
 
 	minimum_character_age = list(
@@ -161,7 +161,7 @@
 	faction = "Station"
 	total_positions = 2
 	spawn_positions = 2
-	supervisors = "the executive officer"
+	supervisors = "исполнительный офицер"
 	selection_color = "#90524b"
 	access = list(ACCESS_JANITOR, ACCESS_MAINT_TUNNELS, ACCESS_ENGINE, ACCESS_RESEARCH, ACCESS_SEC_DOORS, ACCESS_MEDICAL)
 	minimal_access = list(ACCESS_JANITOR, ACCESS_ENGINE, ACCESS_RESEARCH, ACCESS_SEC_DOORS, ACCESS_MEDICAL)
@@ -199,7 +199,7 @@
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "the executive officer"
+	supervisors = "исполнительный офицер"
 	selection_color = "#90524b"
 	access = list(ACCESS_LIBRARY, ACCESS_MAINT_TUNNELS)
 	minimal_access = list(ACCESS_LIBRARY)
@@ -267,7 +267,7 @@
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "the executive officer"
+	supervisors = "исполнительный офицер"
 	selection_color = "#90524b"
 	access = list(ACCESS_CHAPEL_OFFICE, ACCESS_MAINT_TUNNELS)
 	minimal_access = list(ACCESS_CHAPEL_OFFICE)
@@ -331,7 +331,7 @@
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "the captain"
+	supervisors = "капитан"
 	selection_color = "#967032"
 	economic_modifier = 10
 
@@ -383,7 +383,7 @@
 	faction = "Station"
 	total_positions = 3
 	spawn_positions = 3
-	supervisors = "the operations manager"
+	supervisors = "операционный менеджер"
 	selection_color = "#7B431C"
 
 	minimum_character_age = list(
@@ -423,7 +423,7 @@
 	faction = "Station"
 	total_positions = 3
 	spawn_positions = 3
-	supervisors = "the operations manager"
+	supervisors = "операционный менеджер"
 	selection_color = "#7B431C"
 	economic_modifier = 5
 
@@ -475,7 +475,7 @@
 	faction = "Station"
 	total_positions = 2
 	spawn_positions = 2
-	supervisors = "the operations manager"
+	supervisors = "операционный менеджер"
 	selection_color = "#7B431C"
 	economic_modifier = 5
 

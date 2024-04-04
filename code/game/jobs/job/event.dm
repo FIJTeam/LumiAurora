@@ -7,7 +7,7 @@
 	faction = "Station"
 	total_positions = -1
 	spawn_positions = -1
-	supervisors = "the head of security"
+	supervisors = "глава службы безопасности"
 	selection_color = "#991818"
 	economic_modifier = 4
 
@@ -32,7 +32,7 @@
 	faction = "Station"
 	total_positions = -1
 	spawn_positions = -1
-	supervisors = "the chief medical officer"
+	supervisors = "главный врач"
 	selection_color = "#15903a"
 	economic_modifier = 4
 
@@ -56,7 +56,7 @@
 	faction = "Station"
 	total_positions = -1
 	spawn_positions = -1
-	supervisors = "the chief engineer"
+	supervisors = "главный инженер"
 	selection_color = "#c67519"
 	economic_modifier = 5
 
@@ -80,7 +80,7 @@
 	faction = "Station"
 	total_positions = -1
 	spawn_positions = -1
-	supervisors = "the research director"
+	supervisors = "директор исследований"
 	selection_color = "#a44799"
 	economic_modifier = 7
 
@@ -105,7 +105,7 @@
 	faction = "Station"
 	total_positions = -1
 	spawn_positions = -1
-	supervisors = "the operations manager"
+	supervisors = "операционный менеджер"
 	selection_color = "#7B431C"
 
 	minimum_character_age = list(

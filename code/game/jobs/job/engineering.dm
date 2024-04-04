@@ -6,8 +6,7 @@
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
-	intro_prefix = "the"
-	supervisors = "the captain"
+	supervisors = "капитан"
 	selection_color = "#c67519"
 	economic_modifier = 10
 
@@ -78,7 +77,7 @@
 	faction = "Station"
 	total_positions = 5
 	spawn_positions = 5
-	supervisors = "the chief engineer"
+	supervisors = "главный инженер"
 	selection_color = "#c67519"
 	economic_modifier = 5
 
@@ -145,8 +144,7 @@
 	faction = "Station"
 	total_positions = 3
 	spawn_positions = 2
-	intro_prefix = "an"
-	supervisors = "the chief engineer"
+	supervisors = "главный инженер"
 	selection_color = "#c67519"
 	economic_modifier = 5
 
@@ -214,8 +212,7 @@
 	alt_outfits = list("Atmospherics Apprentice" = /obj/outfit/job/intern_atmos)
 	total_positions = 3
 	spawn_positions = 3
-	intro_prefix = "an"
-	supervisors = "the Chief Engineer"
+	supervisors = "главный инженер"
 	selection_color = "#c67519"
 	access = list(ACCESS_MAINT_TUNNELS, ACCESS_CONSTRUCTION, ACCESS_ENGINE_EQUIP, ACCESS_ENGINE)
 	minimal_access = list(ACCESS_MAINT_TUNNELS, ACCESS_CONSTRUCTION, ACCESS_ENGINE_EQUIP, ACCESS_ENGINE)

@@ -6,7 +6,7 @@
 	department_flag = ENGSEC
 	total_positions = 2
 	spawn_positions = 0
-	supervisors = "SCC and the Internal Affairs department"
+	supervisors = "ЗКК и отдел внутренних дел"
 	minimal_player_age = 10
 	economic_modifier = 10
 

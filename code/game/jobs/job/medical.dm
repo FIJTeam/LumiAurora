@@ -6,8 +6,7 @@
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
-	intro_prefix = "the"
-	supervisors = "the captain"
+	supervisors = "капитан"
 	selection_color = "#15903a"
 	economic_modifier = 10
 
@@ -64,7 +63,7 @@
 	faction = "Station"
 	total_positions = 2
 	spawn_positions = 2
-	supervisors = "the chief medical officer"
+	supervisors = "главный врач"
 	selection_color = "#15903a"
 	economic_modifier = 7
 
@@ -85,7 +84,7 @@
 	departments = SIMPLEDEPT(DEPARTMENT_MEDICAL)
 	department_flag = MEDSCI
 	faction = "Station"
-	supervisors = "the chief medical officer"
+	supervisors = "главный врач"
 	selection_color = "#15903a"
 	economic_modifier = 7
 
@@ -152,7 +151,7 @@
 	faction = "Station"
 	total_positions = 2
 	spawn_positions = 2
-	supervisors = "the chief medical officer"
+	supervisors = "главный врач"
 	selection_color = "#15903a"
 	economic_modifier = 5
 
@@ -210,7 +209,7 @@
 		SPECIES_SKRELL_AXIORI = 60
 	)
 
-	supervisors = "the chief medical officer"
+	supervisors = "главный врач"
 	selection_color = "#15903a"
 	access = list(ACCESS_MEDICAL, ACCESS_MEDICAL_EQUIP, ACCESS_MORGUE, ACCESS_SURGERY, ACCESS_PHARMACY, ACCESS_VIROLOGY, ACCESS_GENETICS, ACCESS_PSYCHIATRIST)
 	minimal_access = list(ACCESS_MEDICAL, ACCESS_MEDICAL_EQUIP, ACCESS_PSYCHIATRIST)
@@ -259,7 +258,7 @@
 	faction = "Station"
 	total_positions = 2
 	spawn_positions = 2
-	supervisors = "the chief medical officer"
+	supervisors = "главный врач"
 	selection_color = "#15903a"
 	economic_modifier = 4
 
@@ -338,7 +337,7 @@
 	))
 	total_positions = 2
 	spawn_positions = 2
-	supervisors = "the Chief Medical Officer"
+	supervisors = "главный врач"
 	selection_color = "#15903a"
 	access = list(ACCESS_MEDICAL, ACCESS_MEDICAL_EQUIP)
 	minimal_access = list(ACCESS_MEDICAL, ACCESS_MEDICAL_EQUIP)
