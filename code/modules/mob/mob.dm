@@ -204,7 +204,8 @@
 		var/obj/O = o
 		O.see_emote(src, message)
 
-	animate_chat("*" + original_message, null, TRUE, messageclients, 30)
+	if(original_message)
+		animate_chat("*" + original_message, null, TRUE, messageclients, 30)
 
 	if(intent_message)
 		intent_message(intent_message, intent_range, messagemobs)
