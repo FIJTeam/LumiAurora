@@ -165,9 +165,10 @@
 	return
 
 
-/mob/visible_message(message, self_message, blind_message, range = world.view, show_observers = TRUE, intent_message = null, intent_range = 7)
+/mob/visible_message(message, self_message, blind_message, range = world.view, show_observers = TRUE, intent_message = null, intent_range = 7, original_message)
 	var/list/messageturfs = list() //List of turfs we broadcast to.
 	var/list/messagemobs = list() //List of living mobs nearby who can hear it, and distant ghosts who've chosen to hear it
+	var/list/messageclients = list()
 	var/list/messageobjs = list() //list of objs nearby who can see it
 	for (var/turf in view(range, get_turf(src)))
 		messageturfs += turf
@@ -193,18 +194,25 @@
 		var/mob/M = A
 		if(isobserver(M))
 			M.show_message("[ghost_follow_link(src, M)] [message]", 1)
+			messageclients += M.client
 			continue
 		if(self_message && M == src)
 			M.show_message(self_message, 1, blind_message, 2)
+			messageclients += M.client
 		else if(is_invisible_to(M))  // Cannot view the invisible, but you can hear it.
 			if(blind_message)
 				M.show_message(blind_message, 2)
+				messageclients += M.client
 		else
 			M.show_message(message, 1, blind_message, 2)
+			messageclients += M.client
 
 	for(var/o in messageobjs)
 		var/obj/O = o
 		O.see_emote(src, message)
+
+	if(original_message)
+		animate_chat("*" + original_message, null, TRUE, messageclients, 30)
 
 	if(intent_message)
 		intent_message(intent_message, intent_range, messagemobs)
