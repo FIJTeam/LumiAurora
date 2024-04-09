@@ -157,6 +157,7 @@
 	if(!message)
 		return
 
+	var/original_message = message
 	message = format_emote(src, message)
 
 	if (message)
@@ -164,7 +165,7 @@
 
 	message = process_chat_markup(message, list("~", "_"))
 	if(m_type == VISIBLE_MESSAGE)
-		visible_message(message, show_observers = do_show_observers)
+		visible_message(message, show_observers = do_show_observers, original_message = original_message)
 	else
 		audible_message(message, ghost_hearing = do_show_observers)
 
