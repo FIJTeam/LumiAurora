@@ -35,8 +35,8 @@
 			var/F = investigate_subject2file(subject)
 			if(!F)
 				to_chat(src, SPAN_WARNING("Error: admin_investigate: [INVESTIGATE_DIR][subject] is an invalid path or cannot be accessed."))
-				return
 				F = {"<meta charset="UTF-8">"} + file2text(F)
+				return
 			src << browse(F,"window=investigate[subject];size=800x300")
 
 		if("hrefs")				//persistant logs and stuff
