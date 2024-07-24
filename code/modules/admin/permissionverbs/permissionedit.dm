@@ -62,15 +62,15 @@
 			return
 
 	if (action == "remove")
-		_remove_admin(admin_ckey, D)
+		_remove_admin(D, admin_ckey)
 	else if (action == "rank")
-		_edit_rank(admin_ckey, D)
+		_edit_rank(D, admin_ckey)
 	else if (action == "rights")
-		_edit_rights(admin_ckey, D)
+		_edit_rights(D, admin_ckey)
 
 	SStgui.update_uis(src)
 
-/datum/tgui_module/permissions_panel/proc/_remove_admin(admin_ckey, datum/admins/D)
+/datum/tgui_module/permissions_panel/proc/_remove_admin(datum/admins/D, admin_ckey)
 	PRIVATE_PROC(TRUE)
 
 	admin_datums -= admin_ckey
@@ -79,7 +79,7 @@
 	log_and_message_admins("removed [admin_ckey] from the admins list.")
 	log_admin_rank_modification(admin_ckey, "Removed")
 
-/datum/tgui_module/permissions_panel/proc/_edit_rank(admin_ckey, datum/admins/D)
+/datum/tgui_module/permissions_panel/proc/_edit_rank(datum/admins/D, admin_ckey)
 	PRIVATE_PROC(TRUE)
 
 	var/new_rank
