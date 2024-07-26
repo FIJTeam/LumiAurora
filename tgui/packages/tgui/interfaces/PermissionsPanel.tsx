@@ -33,7 +33,8 @@ export const PermissionsPanel = (props, context) => {
           <Table>
             <Table.Row header>
               <Table.Cell>
-                Username <Button contents="Add" onClick={() => act('add')} />
+                Username
+                <Button content="Add" onClick={() => act('add')} />
               </Table.Cell>
               <Table.Cell>Rank</Table.Cell>
               <Table.Cell>Permissions</Table.Cell>
