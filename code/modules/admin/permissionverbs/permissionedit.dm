@@ -2,7 +2,7 @@
 	set category = "Admin"
 	set name = "Permissions Panel"
 	set desc = "Edit admin permissions"
-	if(!check_rights(R_PERMISSIONS))
+	if (!check_rights(R_PERMISSIONS))
 		return
 
 	var/static/datum/tgui_module/permissions_panel/global_permissions_panel = new()
@@ -15,9 +15,8 @@
 		return
 
 	ui = SStgui.try_update_ui(user, src, ui)
-	if(!ui)
+	if (!ui)
 		ui = new(user, src, "PermissionsPanel", "Permissions Panel", 800, 600)
-		ui.open()
 	ui.open()
 
 /datum/tgui_module/permissions_panel/ui_data(mob/user)
@@ -26,7 +25,7 @@
 
 	for (var/admin_ckey in admin_datums)
 		var/datum/admins/D = admin_datums[admin_ckey]
-		if(!D)
+		if (!D)
 			continue
 
 		var/list/d = list()
@@ -61,6 +60,9 @@
 		if (!admin_ckey)
 			return
 
+		D = new /datum/admins("*none*", 0, admin_ckey)
+		admin_datums[admin_ckey] = D
+
 	if (action == "remove")
 		_remove_admin(D, admin_ckey)
 	else if (action == "rank")
@@ -83,43 +85,43 @@
 	PRIVATE_PROC(TRUE)
 
 	var/new_rank
-	if(admin_ranks.len)
+	if (admin_ranks.len)
 		new_rank = input("Please select a rank", "New rank", null, null) as null|anything in (admin_ranks|"*New Rank*")
 	else
-		new_rank = input("Please select a rank", "New rank", null, null) as null|anything in list("Game Master","Game Admin", "Trial Admin", "Admin Observer","*New Rank*")
+		new_rank = input("Please select a rank", "New rank", null, null) as null|anything in list("Game Master", "Game Admin", "Trial Admin", "Admin Observer", "*New Rank*")
 
 	var/rights = D?.rights || 0
 
 	switch(new_rank)
-		if(null, "")
+		if (null, "")
 			return
-		if("*New Rank*")
+		if ("*New Rank*")
 			new_rank = input("Please input a new rank", "New custom rank", null, null) as null|text
 
-			if(GLOB.config.admin_legacy_system)
+			if (GLOB.config.admin_legacy_system)
 				new_rank = ckeyEx(new_rank)
 
-			if(!new_rank)
+			if (!new_rank)
 				to_chat(usr, SPAN_ALERT("Error editing rank: invalid rank."))
 				return
 
-			if(admin_ranks.len)
-				if(new_rank in admin_ranks)
-					rights = admin_ranks[new_rank]		//we typed a rank which already exists, use its rights
+			if (admin_ranks.len)
+				if (new_rank in admin_ranks)
+					rights = admin_ranks[new_rank] // We typed a rank which already exists, use its rights
 				else
-					admin_ranks[new_rank] = 0			//add the new rank to admin_ranks
+					admin_ranks[new_rank] = 0 // Add the new rank to admin_ranks
 		else
-			rights = admin_ranks[new_rank]				//we input an existing rank, use its rights
+			rights = admin_ranks[new_rank] // We input an existing rank, use its rights
 
-	if(D)
-		D.disassociate()								//remove adminverbs and unlink from client
-		D.rank = new_rank								//update the rank
-		D.rights = rights								//update the rights based on admin_ranks (default: 0)
+	if (D)
+		D.disassociate() // Remove adminverbs and unlink from client
+		D.rank = new_rank // Update the rank
+		D.rights = rights // Update the rights based on admin_ranks (default: 0)
 	else
 		D = new /datum/admins(new_rank, rights, admin_ckey)
 
-	var/client/C = GLOB.directory[admin_ckey]						//find the client with the specified ckey (if they are logged in)
-	D.associate(C)											//link up with the client and add verbs
+	var/client/C = GLOB.directory[admin_ckey] // Find the client with the specified ckey (if they are logged in)
+	D.associate(C) // Link up with the client and add verbs
 
 	log_and_message_admins("edited the admin rank of [admin_ckey] to [new_rank]")
 	log_admin_rank_modification(admin_ckey, new_rank)
@@ -131,11 +133,11 @@
 		return
 
 	var/list/permissionlist = list()
-	for(var/i = 1, i <= R_MAXPERMISSION, i <<= 1)
+	for (var/i = 1, i <= R_MAXPERMISSION, i <<= 1)
 		permissionlist[rights2text(i)] = i
 	var/new_permission = input("Select a permission to turn on/off", "Permission toggle", null, null) as null|anything in permissionlist
 
-	if(!new_permission)
+	if (!new_permission)
 		return
 
 	D.rights ^= permissionlist[new_permission]
@@ -147,10 +149,10 @@
 	PRIVATE_PROC(TRUE)
 
 	var/new_ckey = ckey(input(usr, "New admin's ckey", "Admin ckey", null) as text|null)
-	if(!new_ckey)
+	if (!new_ckey)
 		return ""
 
-	if(new_ckey in admin_datums)
+	if (new_ckey in admin_datums)
 		to_chat(usr, SPAN_ALERT("[new_ckey] is already an admin."))
 		return ""
 
@@ -184,18 +186,18 @@
 		new_admin = FALSE
 
 	if (new_admin)
-		var/DBQuery/update_query = GLOB.dbcon.NewQuery("INSERT INTO `ss13_admins` VALUES (:ckey:, :rank:, 0)")
-		update_query.Execute(list("ckey" = admin_ckey, "rank" = new_rank))
+		var/DBQuery/insert_query = GLOB.dbcon.NewQuery("INSERT INTO `ss13_admins` (ckey, rank, flags) VALUES (:ckey:, :rank:, 0)")
+		insert_query.Execute(list("ckey" = admin_ckey, "rank" = new_rank))
 		to_chat(usr, SPAN_NOTICE("New admin added to the DB."))
 
 	else if (new_rank != "Removed")
-		var/DBQuery/insert_query = GLOB.dbcon.NewQuery("UPDATE `ss13_admins` SET rank = :rank: WHERE ckey = :ckey:")
-		insert_query.Execute(list("ckey" = admin_ckey, "rank" = new_rank))
+		var/DBQuery/update_query = GLOB.dbcon.NewQuery("UPDATE `ss13_admins` SET rank = :rank: WHERE ckey = :ckey:")
+		update_query.Execute(list("ckey" = admin_ckey, "rank" = new_rank))
 		to_chat(usr, SPAN_NOTICE("Admin's rank changed."))
 
 	else if (new_rank == "Removed")
-		var/DBQuery/insert_query = GLOB.dbcon.NewQuery("DELETE FROM ss13_admins WHERE ckey = :ckey:")
-		insert_query.Execute(list("ckey" = admin_ckey))
+		var/DBQuery/delete_query = GLOB.dbcon.NewQuery("DELETE FROM `ss13_admins` WHERE ckey = :ckey:")
+		delete_query.Execute(list("ckey" = admin_ckey))
 		to_chat(usr, SPAN_NOTICE("Admin removed."))
 
 /datum/tgui_module/permissions_panel/proc/log_admin_permission_modification(admin_ckey, new_permission)
@@ -210,18 +212,18 @@
 		to_chat(usr, SPAN_WARNING("Failed to establish database connection."))
 		return
 
-	if(!admin_ckey || !new_permission)
+	if (!admin_ckey || !new_permission)
 		return
 
 	admin_ckey = ckey(admin_ckey)
 
-	if(istext(new_permission))
+	if (istext(new_permission))
 		new_permission = text2num(new_permission)
 
-	if(!istext(admin_ckey) || !isnum(new_permission))
+	if (!istext(admin_ckey) || !isnum(new_permission))
 		return
 
-	var/DBQuery/select_query = GLOB.dbcon.NewQuery("SELECT flags FROM ss13_admins WHERE ckey = :ckey:")
+	var/DBQuery/select_query = GLOB.dbcon.NewQuery("SELECT flags FROM `ss13_admins` WHERE ckey = :ckey:")
 	select_query.Execute(list("ckey" = admin_ckey))
 
 	var/admin_rights = 0
