@@ -269,12 +269,11 @@ GLOBAL_LIST_INIT(world_api_rate_limit, list())
 	var/list/features = list()
 
     var/new_status = ""
-    var/hostedby
-    if(GLOB.config)
+
+    if (GLOB.config)
         var/server_name = GLOB.config.server_name
         if (server_name)
             new_status += "<b>[server_name]</b> &#8212; "
-        hostedby = GLOB.config.hostedby
 
     new_status += "("
     new_status += "<a href=\"[GLOB.config.forumurl]\">" // Обновите на Discord URL или другой
@@ -287,13 +286,6 @@ GLOBAL_LIST_INIT(world_api_rate_limit, list())
         new_status += "<br>СТАТУС ИГРЫ: <b>В ЛОББИ</b><br>"
     else
         new_status += "<br>СТАТУС ИГРЫ: <b>ИДЁТ ИГРА</b><br>"
-
-    // Добавление информации о хосте, если hostedby определен
-    if (hostedby)
-        features += "hosted by <b>[hostedby]</b>"
-
-    if (features)
-        new_status += "<br>[jointext(features, ", ")]"
 
     // Обновление статуса
     if (src.status != new_status)
