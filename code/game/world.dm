@@ -323,59 +323,38 @@ var/list/world_api_rate_limit = list()
 		GLOB.config.load("config/age_restrictions.txt", "age_restrictions")
 
 /world/proc/update_status()
-	var/list/s = list()
+    var/list/features = list()
 
-	if (GLOB.config && GLOB.config.server_name)
-		s += "<b>[GLOB.config.server_name]</b> &#8212; "
+    var/new_status = ""
+    var/hostedby
+    if(GLOB.config)
+        var/server_name = GLOB.config.server_name
+        if (server_name)
+            new_status += "<b>[server_name]</b> &#8212; "
+        hostedby = GLOB.config.hostedby
 
-	s += "<b>[station_name()]</b>";
-	s += " ("
-	s += "<a href=\"[GLOB.config.forumurl]\">" //Change this to wherever you want the hub to link to.
-	s += "Discord"  //Replace this with something else. Or ever better, delete it and uncomment the game version.
-	s += "</a>"
-	s += ")"
-	s += " Высокий уровень RolePlay, модифицированный без ответвлений билд Aurora"
+    new_status += "("
+    new_status += "<a href=\"[GLOB.config.forumurl]\">" // Обновите на Discord URL или другой
+    new_status += "Discord"
+    new_status += ")"
+    new_status += "<br>Высокий уровень RolePlay, модифицированный без ответвлений билд Aurora"
 
-	var/list/features = list()
+    // Устанавливаем статус игры в зависимости от состояния
+    if (SSticker.current_state <= GAME_STATE_PREGAME)
+        new_status += "<br>СТАТУС ИГРЫ: <b>В ЛОББИ</b><br>"
+    else
+        new_status += "<br>СТАТУС ИГРЫ: <b>ИДЁТ ИГРА</b><br>"
 
-	if (Master.init_timeofday)	// This is set at the end of initialization.
-		if(GLOB.master_mode)
-			features += GLOB.master_mode
-	else
-		features += "<b>STARTING</b>"
+    // Добавление информации о хосте, если hostedby определен
+    if (hostedby)
+        features += "hosted by <b>[hostedby]</b>"
 
-	if (!GLOB.config.enter_allowed)
-		features += "closed"
+    if (features)
+        new_status += "<br>[jointext(features, ", ")]"
 
-	features += GLOB.config.abandon_allowed ? "respawn" : "no respawn"
-
-	if (GLOB.config && GLOB.config.allow_vote_mode)
-		features += "vote"
-
-	if (GLOB.config && GLOB.config.allow_ai)
-		features += "AI allowed"
-
-	var/n = 0
-	for (var/mob/M in GLOB.player_list)
-		if (M.client)
-			n++
-
-	if (n > 1)
-		features += "~[n] players"
-	else if (n > 0)
-		features += "~[n] player"
-
-	if (GLOB.config && GLOB.config.hostedby)
-		features += "hosted by <b>[GLOB.config.hostedby]</b>"
-
-	if (features)
-		s += ": [jointext(features, ", ")]"
-
-	s = s.Join()
-
-	/* does this help? I do not know */
-	if (src.status != s)
-		src.status = s
+    // Обновление статуса
+    if (src.status != new_status)
+        src.status = new_status
 
 #define FAILED_DB_CONNECTION_CUTOFF 5
 
