@@ -58,7 +58,7 @@ GLOBAL_LIST_INIT(adminhelp_ignored_words, list("unknown","the","a","an","of","mo
 								msg += " <A href='byond://?_src_=holder;adminchecklaws=[REF(mob)]'>(CL)</A>"
 							msg += "</b> "
 							continue
-			msg += "[original_word] "
+		msg += "[original_word] "
 
 	return msg
 
