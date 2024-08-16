@@ -1167,19 +1167,9 @@ window "rpane"
 		text = "Wiki"
 		command = "wiki"
 		group = "rpanemode"
-	elem "interfaceb"
-		type = BUTTON
-		pos = 336,0
-		size = 60x16
-		anchor1 = -1,-1
-		anchor2 = -1,-1
-		background-color = none
-		saved-params = "is-checked"
-		text = "WI Link"
-		command = "open_webint"
 	elem "discordb"
 		type = BUTTON
-		pos = 400,0
+		pos = 336,0
 		size = 60x16
 		anchor1 = -1,-1
 		anchor2 = -1,-1

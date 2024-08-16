@@ -232,10 +232,6 @@ var/list/localhost_addresses = list(
 			if ("wiki")
 				src.wiki(sub_page = (href_list["wiki_page"] || null))
 
-			// Web interface href link from various panels.
-			if ("webint")
-				src.open_webint()
-
 		return
 
 	if (href_list["view_jobban"])
