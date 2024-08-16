@@ -178,19 +178,6 @@ Any-Mode: (hotkey doesn't need to be on)
 	if(holder)
 		to_chat(src, admin)
 
-/client/verb/open_webint()
-	set name = "open_webint"
-	set desc = "Visit the web interface."
-	set hidden = 1
-
-	if (GLOB.config.webint_url)
-		if(tgui_alert(usr, "This will open the Web Interface in your browser. Are you sure?", "Web Interface", list("Yes", "No")) == "No")
-			return
-		send_link(src, GLOB.config.webint_url)
-	else
-		to_chat(src, SPAN_WARNING("The web interface URL is not set in the server configuration."))
-	return
-
 /client/verb/open_discord()
 	set name = "open_discord"
 	set desc = "Get a link to the Discord server."
