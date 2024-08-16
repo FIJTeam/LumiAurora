@@ -307,7 +307,7 @@
 		to_chat(usr, SPAN_WARNING("Failed to establish database connection"))
 		return
 
-	var/output = "<div align='center'><table width='90%'><tr>"
+	var/output = "<meta charset=\"utf-8\"><div align='center'><table width='90%'><tr>"
 
 	output += "<td width='35%' align='center'>"
 	output += "<h1>Banning panel</h1>"
