@@ -68,7 +68,12 @@ GENERAL_PROTECT_DATUM(/DBConnection)
 	cursor_handler = con_cursor
 	if (!cursor_handler)
 		cursor_handler = Default_Cursor
-	return _dm_db_connect(_db_con, dbi_handler, user_handler, password_handler, cursor_handler, null)
+	. = _dm_db_connect(_db_con, dbi_handler, user_handler, password_handler, cursor_handler, null)
+
+	if(.)
+		// force session encoding, maybe we can do this in connector call above but it's still totally undocumented byond feature
+		var/DBQuery/set_names = NewQuery("SET NAMES utf8mb4")
+		set_names.Execute()
 
 /DBConnection/proc/Disconnect()
 	return _dm_db_close(_db_con)
