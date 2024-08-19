@@ -103,7 +103,6 @@ export const SMESWindow = (props, context) => {
           </LabeledList.Item>
           <LabeledList.Item label="Input Level">
             <Slider
-              color="primary"
               value={data.charge_level}
               fillValue={data.charge_taken}
               minValue={0}
@@ -139,7 +138,6 @@ export const SMESWindow = (props, context) => {
           </LabeledList.Item>
           <LabeledList.Item label="Output Level">
             <Slider
-              color="green"
               value={data.output_level}
               fillValue={data.output_load}
               minValue={0}
