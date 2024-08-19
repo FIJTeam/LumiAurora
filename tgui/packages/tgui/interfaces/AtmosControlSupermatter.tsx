@@ -25,29 +25,31 @@ type Output = {
 
 export const AtmosControlSupermatter = (props, context) => {
   const { act, data } = useBackend<TankData>(context);
+
   return (
     <Window resizable theme="hephaestus">
       <Window.Content scrollable>
-        <Section>
-          <AtmosControl />
-        </Section>
-        <Section title="Core Cooling Control System">
-          {data.input ? (
-            <InputWindow />
-          ) : (
-            <Button
-              content="Search Input Port"
-              onClick={() => act('in_refresh_status')}
-            />
-          )}
-          {data.output ? (
-            <OutputWindow />
-          ) : (
-            <Button
-              content="Search Output Port"
-              onClick={() => act('out_refresh_status')}
-            />
-          )}
+        <AtmosControl />
+        <Section
+          title="Core Cooling Control System"
+          buttons={[
+            !data.input && (
+              <Button
+                icon="search"
+                content="Input Port"
+                onClick={() => act('in_refresh_status')}
+              />
+            ),
+            !data.output && (
+              <Button
+                icon="search"
+                content="Output Port"
+                onClick={() => act('out_refresh_status')}
+              />
+            ),
+          ]}>
+          {data.input && <InputWindow />}
+          {data.output && <OutputWindow />}
         </Section>
       </Window.Content>
     </Window>
