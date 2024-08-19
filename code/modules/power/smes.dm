@@ -445,7 +445,7 @@
 
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "SMES", name, 540, 420)
+		ui = new(user, src, "SMES", name)
 		ui.open()
 
 /obj/machinery/power/smes/proc/Percentage()
