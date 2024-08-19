@@ -1,6 +1,6 @@
 import { BooleanLike } from '../../common/react';
 import { useBackend } from '../backend';
-import { Box, BlockQuote, Button, LabeledList, Section, ProgressBar, NumberInput } from '../components';
+import { Box, BlockQuote, Button, LabeledList, Section, ProgressBar, Slider } from '../components';
 import { Window } from '../layouts';
 
 export type SMESData = {
@@ -26,7 +26,7 @@ export const SMES = (props, context) => {
   const { act, data } = useBackend<SMESData>(context);
 
   return (
-    <Window resizable>
+    <Window resizable theme="hephaestus" width={420} height={330}>
       <Window.Content scrollable>
         {data.fail_time ? <FailWindow /> : <SMESWindow />}
       </Window.Content>
@@ -58,109 +58,103 @@ export const SMESWindow = (props, context) => {
   const { act, data } = useBackend<SMESData>(context);
 
   return (
-    <Section title="Supermagnetic Storage">
-      <LabeledList>
-        <LabeledList.Item label="Stored Capacity">
-          <ProgressBar
-            color={data.charging ? 'good' : 'average'}
-            value={data.stored_capacity}
-            minValue={0}
-            maxValue={100}
-          />
-        </LabeledList.Item>
-        <LabeledList.Item label="Charge Status">
-          {data.charge_mode === 1
-            ? `Charge will complete in ${time_remaining(
-              data.time,
-              data.wtime
-            )}.`
-            : data.charge_mode === 2
-              ? 'Output and input balanced.'
-              : `Charge will run out in ${time_remaining(
+    <>
+      <Section title="Supermagnetic Storage">
+        <LabeledList>
+          <LabeledList.Item label="Stored Capacity">
+            <ProgressBar
+              color={data.charging ? 'good' : 'average'}
+              value={data.stored_capacity}
+              minValue={0}
+              maxValue={100}
+            />
+          </LabeledList.Item>
+          <LabeledList.Item label="Charge Status">
+            {data.charge_mode === 1
+              ? `Charge will complete in ${time_remaining(
                 data.time,
                 data.wtime
-              )}.`}
-        </LabeledList.Item>
-      </LabeledList>
-      <Section title="Input Management">
+              )}.`
+              : data.charge_mode === 2
+                ? 'Output and input balanced.'
+                : `Charge will run out in ${time_remaining(
+                  data.time,
+                  data.wtime
+                )}.`}
+          </LabeledList.Item>
+        </LabeledList>
+      </Section>
+      <Section
+        title="Input Management"
+        buttons={[
+          <Button
+            key="inputButton"
+            content={data.charge_attempt ? 'Auto' : 'Off'}
+            color={data.charge_attempt ? 'good' : 'bad'}
+            icon={data.charge_attempt ? 'sync' : 'times'}
+            onClick={() => act('cmode')}
+          />,
+        ]}>
         <LabeledList>
           <LabeledList.Item label="Charge Mode">
-            <Button
-              content={data.charge_attempt ? 'Auto' : 'Off'}
-              color={data.charge_attempt ? 'good' : 'bad'}
-              icon={data.charge_attempt ? 'sync' : 'times'}
-              onClick={() => act('cmode')}
-            />
             <Box as="span" color={charge_class(data.charge_mode)}>
               [{charge_status(data.charge_mode)}]
             </Box>
           </LabeledList.Item>
           <LabeledList.Item label="Input Level">
-            <ProgressBar
+            <Slider
               value={data.charge_level}
+              fillValue={data.charge_taken}
               minValue={0}
               maxValue={data.charge_max}
-            />
-            <NumberInput
-              value={data.charge_level}
-              minValue={0}
-              maxValue={data.charge_max}
-              unit="W"
               step={5000}
-              onDrag={(e, value) => act('input', { input: value })}
+              stepPixelSize={4}
+              unit="W"
+              onDrag={(e, value) =>
+                act('input', {
+                  input: value,
+                })
+              }
             />
-          </LabeledList.Item>
-          <LabeledList.Item label="Input Load">
-            <ProgressBar
-              color={data.charge_taken < data.charge_level ? 'average' : 'good'}
-              value={data.charge_taken}
-              minValue={0}
-              maxValue={data.charge_max}>
-              {data.charge_taken} W
-            </ProgressBar>
           </LabeledList.Item>
         </LabeledList>
       </Section>
-      <Section title="Output Management">
+      <Section
+        title="Output Management"
+        buttons={[
+          <Button
+            key="outputButton"
+            content={data.output_attempt ? 'Online' : 'Offline'}
+            color={data.output_attempt ? 'good' : 'bad'}
+            icon={data.output_attempt ? 'power-off' : 'times'}
+            onClick={() => act('online')}
+          />,
+        ]}>
         <LabeledList>
           <LabeledList.Item label="Output Status">
-            <Button
-              content={data.output_attempt ? 'Online' : 'Offline'}
-              color={data.output_attempt ? 'good' : 'bad'}
-              icon={data.output_attempt ? 'power-off' : 'times'}
-              onClick={() => act('online')}
-            />
             <Box as="span" color={output_class(data.outputting)}>
               [{output_status(data.outputting)}]
             </Box>
           </LabeledList.Item>
           <LabeledList.Item label="Output Level">
-            <ProgressBar
+            <Slider
               value={data.output_level}
+              fillValue={data.output_load}
               minValue={0}
               maxValue={data.output_max}
-            />
-            <NumberInput
-              value={data.output_level}
-              minValue={0}
-              maxValue={data.output_max}
-              unit="W"
               step={5000}
-              onDrag={(e, value) => act('output', { output: value })}
+              stepPixelSize={4}
+              unit="W"
+              onDrag={(e, value) =>
+                act('output', {
+                  output: value,
+                })
+              }
             />
-          </LabeledList.Item>
-          <LabeledList.Item label="Output Load">
-            <ProgressBar
-              color={data.output_load < data.output_level ? 'average' : 'good'}
-              value={data.output_load}
-              minValue={0}
-              maxValue={data.output_max}>
-              {data.output_load} W
-            </ProgressBar>
           </LabeledList.Item>
         </LabeledList>
       </Section>
-    </Section>
+    </>
   );
 };
 
