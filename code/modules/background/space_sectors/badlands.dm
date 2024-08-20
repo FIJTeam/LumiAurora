@@ -1,8 +1,8 @@
 /datum/space_sector/badlands
 	name = SECTOR_BADLANDS
-	description = "The Badlands are home to some of the Orion Spur's most savage flora and fauna, a phenomenon that attracts only the wildest and wisest of the system's inhabitants - xenobiologists, \
-	weapon scientists, there's even a market for mercenaries, in the hunting of the particularly large and lethal creatures. Of course, there are also those looking to make a life for themselves, \
-	but natives aren't known to treat settlements kindly."
+	description = "Дикие земли являются домом для самых свирепых представителей флоры и фауны в рукаве Ориона, что привлекает сюда лишь самых диких и мудрых жителей системы – ксенобиологов, \
+	учёных-оружейников, а также существует рынок для наёмников, занимающихся охотой на особенно крупных и смертоносных существ. Конечно, здесь также есть те, кто хочет начать новую жизнь, \
+	но местные жители не славятся добрым отношением к поселенцам."
 	skybox_icon = "badlands"
 	sector_welcome_message = 'sound/AI/welcome_badlands.ogg'
 	possible_exoplanets = list(
