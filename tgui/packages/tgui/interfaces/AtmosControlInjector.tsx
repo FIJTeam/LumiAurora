@@ -20,9 +20,7 @@ export const AtmosControlInjector = (props, context) => {
   return (
     <Window resizable>
       <Window.Content scrollable>
-        <Section>
-          <AtmosControl />
-        </Section>
+        <AtmosControl />
         {data.device ? (
           <InjectorWindow />
         ) : (
