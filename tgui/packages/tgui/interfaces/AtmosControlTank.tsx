@@ -28,26 +28,30 @@ export const AtmosControlTank = (props, context) => {
   return (
     <Window resizable>
       <Window.Content scrollable>
-        <Section>
-          <AtmosControl />
-        </Section>
-        <Section title="Tank Control System">
-          {data.input ? (
-            <InputWindow />
-          ) : (
-            <Button
-              content="Search Input Port"
-              onClick={() => act('in_refresh_status')}
-            />
-          )}
-          {data.output ? (
-            <OutputWindow />
-          ) : (
-            <Button
-              content="Search Output Port"
-              onClick={() => act('out_refresh_status')}
-            />
-          )}
+        <AtmosControl />
+        <Section
+          title="Tank Control System"
+          buttons={[
+            <>
+              {!data.input && (
+                <Button
+                  icon="search"
+                  content="Input Port"
+                  onClick={() => act('in_refresh_status')}
+                />
+              )}
+
+              {!data.output && (
+                <Button
+                  icon="search"
+                  content="Output Port"
+                  onClick={() => act('out_refresh_status')}
+                />
+              )}
+            </>,
+          ]}>
+          {data.input && <InputWindow />}
+          {data.output && <OutputWindow />}
         </Section>
       </Window.Content>
     </Window>
