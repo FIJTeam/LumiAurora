@@ -1001,16 +1001,7 @@
 		return
 
 	else if(href_list["CentcommFaxReply"])
-
-		var/department = null
-		if (href_list["faxMachine"])
-			var/obj/machinery/photocopier/faxmachine/fax = locate(href_list["faxMachine"])
-			department = fax.department
-		else
-			department = input("Choose the target department.", "Target Department", null) in alldepartments
-
-		create_admin_fax(department)
-
+		create_admin_fax()
 		return
 
 	else if(href_list["jumpto"])
