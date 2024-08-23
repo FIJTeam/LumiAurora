@@ -106,7 +106,7 @@
 			var/datum/stack_recipe/recipe = locate(params["ref"]) in recipe_list.recipes
 
 			produce_recipe(recipe, 1, usr)
-			updateUsrDialog()
+			return TRUE
 
 /obj/item/stack/ui_data(mob/user)
 	. = ..()
