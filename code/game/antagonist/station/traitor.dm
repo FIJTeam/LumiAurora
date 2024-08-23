@@ -6,7 +6,7 @@ GLOBAL_DATUM(traitors, /datum/antagonist/traitor)
 	restricted_jobs = list("Head of Security", "Captain", "Chief Engineer", "Research Director", "Chief Medical Officer", "Executive Officer", "Operations Manager", "AI", "Merchant")
 	protected_jobs = list("Security Officer", "Security Cadet", "Warden", "Investigator")
 	flags = ANTAG_SUSPICIOUS | ANTAG_RANDSPAWN | ANTAG_VOTABLE
-	required_age = 10
+	required_age = 3
 
 	faction = "syndicate"
 	bantype = "traitor"
