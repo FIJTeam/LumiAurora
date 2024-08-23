@@ -81,66 +81,43 @@
 				. += "You have enough charge to produce <b>[get_amount()]</b>."
 
 /obj/item/stack/attack_self(mob/user)
-	list_recipes(user, recipes)
+	ui_interact(user)
 
-/obj/item/stack/proc/list_recipes(mob/user, recipes_sublist, var/datum/stack_recipe/sublist)
-	if(!recipes)
+/obj/item/stack/ui_interact(mob/user, datum/tgui/ui)
+	. = ..()
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "Material", name)
+		ui.open()
+
+
+/obj/item/stack/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
+
+	if(.)
 		return
-	if(!src || get_amount() <= 0)
-		user << browse(null, "window=stack")
-	user.set_machine(src) //for correct work of onclose
 
-	var/t1 = "<html><head><title>Constructions from [capitalize_first_letters(src.name)]</title></head><body><tt>Amount Left: [src.get_amount()]<br>"
+	switch(action)
+		if("make")
+			if(src.get_amount() < 1)
+				qdel(src) //Never should happen
 
-	if(sublist)
-		t1 += "<a href='?src=\ref[src];go_back=1'>Back</a><br>"
-	if(locate(/datum/stack_recipe_list) in recipes_sublist)
-		t1 += "<h2>Recipe Categories</h2>"
-	for(var/datum/stack_recipe_list/srl in recipes_sublist)
-		t1 += "<a href='?src=\ref[src];sublist=\ref[srl]'>[capitalize_first_letters(srl.title)]</a><br>"
+			var/datum/stack_recipe_list/recipe_list = locate(params["sublist"]) in recipes
+			var/datum/stack_recipe/recipe = locate(params["ref"]) in recipe_list.recipes
 
-	if(locate(/datum/stack_recipe) in recipes_sublist)
-		var/sublist_title = sublist ? " ([capitalize_first_letters(sublist.title)])" : ""
-		t1 += "<h2>Recipes[sublist_title]</h2>"
-	for(var/datum/stack_recipe/R in recipes_sublist)
-		var/max_multiplier = round(src.get_amount() / R.req_amount)
-		var/title = ""
-		var/can_build = TRUE
-		can_build = (max_multiplier > 0)
+			produce_recipe(recipe, 1, usr)
+			updateUsrDialog()
 
-		if(R.res_amount > 1)
-			title += "[R.res_amount]x [R.title]\s"
-		else
-			title += "[capitalize_first_letters(R.title)]"
-
-		title += " ([R.req_amount] [src.singular_name]\s)"
-
-		if(can_build)
-			var/sublist_var = sublist ? "\ref[sublist]" : ""
-			t1 += "<a href='?src=\ref[src];make=\ref[R];sublist=[sublist_var];multiplier=1'>[title]</a>"
-		else
-			t1 += "<div class='no-build inline'>[title]</div><br>"
-			continue
-
-		if(R.max_res_amount > 1 && max_multiplier > 1)
-			max_multiplier = min(max_multiplier, round(R.max_res_amount / R.res_amount))
-			t1 += " |"
-			var/list/multipliers = list(5, 10, 25)
-			for(var/n in multipliers)
-				if(max_multiplier >= n)
-					var/sublist_var = sublist ? "\ref[sublist]" : ""
-					t1 += " <a href='?src=\ref[src];make=\ref[R];sublist=[sublist_var];multiplier=[n]'>[n * R.res_amount]x</a>"
-			if(!(max_multiplier in multipliers))
-				var/sublist_var = sublist ? "\ref[sublist]" : ""
-				t1 += " <a href='?src=\ref[src];make=\ref[R];sublist=[sublist_var];multiplier=[max_multiplier]'>[max_multiplier * R.res_amount]x</a>"
-		t1 += "<br>"
-
-	t1 += "</tt></body></html>"
-
-	var/datum/browser/stack_win = new(user, "stack", capitalize_first_letters(name))
-	stack_win.set_content(t1)
-	stack_win.add_stylesheet("misc", 'html/browser/misc.css')
-	stack_win.open()
+/obj/item/stack/ui_data(mob/user)
+	. = ..()
+	var/list/data = list()
+	data["amount"] = get_amount()
+	data["name"] = name
+	data["items"] = list()
+	for(var/datum/stack_recipe_list/recipe_list in recipes)
+		for(var/datum/stack_recipe/recipe in recipe_list.recipes)
+			data["items"] += list(list("name" = recipe.title, "ref" = REF(recipe), "sublist_ref" = ref(recipe_list), "time_to_craft" = recipe.time, "req_amount" = recipe.req_amount))
+	return data
 
 /obj/item/stack/proc/produce_recipe(datum/stack_recipe/recipe, var/quantity, mob/user)
 	var/required = quantity*recipe.req_amount
@@ -168,34 +145,6 @@
 
 	if (use(required))
 		recipe.Produce(produced, user.loc, user.dir, user)
-
-/obj/item/stack/Topic(href, href_list)
-	..()
-	if((usr.restrained() || usr.stat || usr.get_active_hand() != src))
-		return
-
-	if(href_list["go_back"])
-		list_recipes(usr, recipes)
-		return
-
-	if(href_list["sublist"] && !href_list["make"])
-		var/datum/stack_recipe_list/recipe_list = locate(href_list["sublist"]) in recipes
-		list_recipes(usr, recipe_list.recipes, recipe_list)
-
-	if(href_list["make"])
-		if(src.get_amount() < 1)
-			qdel(src) //Never should happen
-
-		var/datum/stack_recipe/R = locate(href_list["make"]) in recipes
-		if(href_list["sublist"])
-			var/datum/stack_recipe_list/recipe_list = locate(href_list["sublist"]) in recipes
-			R = locate(href_list["make"]) in recipe_list.recipes
-		var/multiplier = text2num(href_list["multiplier"])
-		if(!multiplier || (multiplier <= 0)) //href exploit protection
-			return
-
-		produce_recipe(R, multiplier, usr)
-		updateUsrDialog()
 
 //Return 1 if an immediate subsequent call to use() would succeed.
 //Ensures that code dealing with stacks uses the same logic
