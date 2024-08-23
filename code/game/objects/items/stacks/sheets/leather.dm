@@ -72,7 +72,7 @@
 	var/being_dried = FALSE //If we're manually drying this.
 
 //Wet leather can't be used to make things. Too soggy.
-/obj/item/stack/material/animalhide/wetleather/list_recipes(mob/user, recipes_sublist, var/datum/stack_recipe/sublist)
+/obj/item/stack/material/animalhide/wetleather/ui_interact(mob/user, datum/tgui/ui)
 	to_chat(user, SPAN_WARNING("\The [src] isn't suitable for crafting!"))
 	return
 
