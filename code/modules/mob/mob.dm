@@ -1376,7 +1376,7 @@
 		return
 
 	SetWeakened(200)
-	visible_message("<span class='info'><b>OOC Information:</b></span> <span class='warning'>[src] has been winded by a member of staff! Please freeze all roleplay involving their character until the matter is resolved! Adminhelp if you have further questions.</span>", SPAN_WARNING("<b>You have been winded by a member of staff! Please stand by until they contact you!</b>"))
+	visible_message("<span class='info'><b>OOC Информация:</b></span> <span class='warning'>[src] был выведен из игры членом администрации! Пожалуйста, приостановите всю ролевую игру с участием его персонажа до разрешения ситуации! Используйте \"Adminhelp\", если у вас есть дополнительные вопросы.</span>", SPAN_WARNING("<b>Вы были выведены из игры членом администрации! Пожалуйста, дождитесь момента, пока с вами не свяжутся!</b>"))
 	log_admin("[key_name(admin)] winded [key_name(src)]!")
 	message_admins("[key_name_admin(admin)] winded [key_name_admin(src)]!", 1)
 
