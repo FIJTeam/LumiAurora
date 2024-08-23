@@ -265,7 +265,7 @@
 
 	//when the player is winded by an admin
 	if(paralysis > 6000)
-		msg += "<span><font size='3'><font color='#002eb8'><b>OOC Information:</b></font> <font color='red'>This player has been winded by a member of staff! Please freeze all roleplay involving their character until the matter is resolved! Adminhelp if you have further questions.</font></font></span>\n"
+		msg += "<span><font size='3'><font color='#002eb8'><b>OOC Информация:</b></font> <font color='red'>Этот игрок был выведен из игры членом администрации! Пожалуйста, приостановите всю ролевую игру с участием его персонажа до разрешения ситуации! Используйте \"Adminhelp\", если у вас есть дополнительные вопросы.</font></font></span>\n"
 
 	var/have_client = client
 	var/inactivity = client ? client.inactivity : null
