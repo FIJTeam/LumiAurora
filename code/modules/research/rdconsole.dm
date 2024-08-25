@@ -54,6 +54,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 
 	var/protolathe_category = "All"
 	var/imprinter_category = "All"
+	var/test_data
 
 	req_access = list(ACCESS_TOX)	//Data and setting manipulation requires scientist access.
 
@@ -181,6 +182,46 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 		to_chat(usr, SPAN_NOTICE("You you disable the security protocols."))
 		return 1
 
+/obj/machinery/computer/rdconsole/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
+
+/obj/machinery/computer/rdconsole/ui_interact(mob/user, datum/tgui/ui)
+	. = ..()
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "ResearchConsole", capitalize(name))
+		ui.open()
+
+/obj/machinery/computer/rdconsole/ui_data(mob/user)
+	. = ..()
+	var/list/data = list()
+	data["has_lathe"] = linked_lathe ? TRUE : FALSE
+	data["has_imprinter"] = linked_imprinter ? TRUE : FALSE
+	data["has_destroy"] = linked_destroy ? TRUE : FALSE
+	data["tech_list"] = list()
+	for(var/tech_id in files.known_tech)
+		var/datum/tech/tech = files.known_tech[tech_id]
+		data["tech_list"] += list(list("name" = tech.name, "level" = tech.level, "progress" = tech.next_level_progress, "threshold" = tech.next_level_threshold))
+
+	if(linked_lathe)
+		data["lathe_materials"] = list("total" = linked_lathe.TotalMaterials(), "max_material" = linked_lathe.max_material_storage , "materials" = list(), "reagents" = list())
+		for(var/_R in linked_lathe.reagents.reagent_volumes)
+			var/singleton/reagent/reagent = GET_SINGLETON(_R)
+			data["imprinter_materials"]["reagents"] += list(list("name" = capitalize(reagent.name), "amount" = linked_lathe.reagents.reagent_volumes[_R]))
+		for(var/material in linked_lathe.materials)
+			data["lathe_materials"]["materials"] += list(list("name" = capitalize(material), "amount" = linked_lathe.materials[material]))
+
+	if(linked_imprinter)
+		data["imprinter_materials"] = list("total" = linked_imprinter.TotalMaterials(),  "max_material" = linked_imprinter.max_material_storage, "materials" = list(), "reagents" = list())
+		for(var/_R in linked_imprinter.reagents.reagent_volumes)
+			var/singleton/reagent/reagent = GET_SINGLETON(_R)
+			data["imprinter_materials"]["reagents"] += list(list("name" = capitalize(reagent.name), "amount" = linked_imprinter.reagents.reagent_volumes[_R]))
+		for(var/material in linked_imprinter.materials)
+			data["imprinter_materials"]["materials"] += list(list("name" = capitalize(material), "amount" = linked_imprinter.materials[material]))
+
+	test_data = data
+	return data
+/*
 /obj/machinery/computer/rdconsole/Topic(href, href_list)
 	if(..())
 		return 1
@@ -441,6 +482,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 
 	updateUsrDialog()
 	return
+	*/
 
 /obj/machinery/computer/rdconsole/proc/GetResearchLevelsInfo()
 	var/dat
@@ -471,7 +513,9 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 	dat += "</UL>"
 	return dat
 
-/obj/machinery/computer/rdconsole/attack_hand(mob/user as mob)
+/obj/machinery/computer/rdconsole/attack_hand(mob/user)
+	ui_interact(user)
+/* /obj/machinery/computer/rdconsole/attack_hand(mob/user as mob)
 	if(stat & (BROKEN|NOPOWER))
 		return
 
@@ -868,6 +912,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 	rdconsole.add_stylesheet("rdconsole", 'html/browser/rdconsole.css')
 	rdconsole.set_content(dat)
 	rdconsole.open()
+*/
 
 /obj/machinery/computer/rdconsole/robotics
 	name = "robotics R&D console"

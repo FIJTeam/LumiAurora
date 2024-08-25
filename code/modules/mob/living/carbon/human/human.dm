@@ -2254,6 +2254,16 @@
 			adjustEarDamage(5, 5, FALSE)
 			stop_listening()
 
+/mob/living/carbon/human/verb/look_hotlkey(input as text)
+	set name = "Look"
+	set hidden = TRUE
+
+	switch(input)
+		if("up")
+			lookup()
+		if("down")
+			lookdown()
+
 /mob/living/carbon/human/verb/lookup()
 	set name = "Look Up"
 	set desc = "If you want to know what's above."

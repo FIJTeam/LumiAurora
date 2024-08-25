@@ -118,6 +118,11 @@
 	set hidden = TRUE
 	winset(src, null, "command=[client.tgui_say_create_open_command(SAY_CHANNEL)]")
 
+/mob/verb/whisper_wrapper()
+	set name = ".Whis"
+	set hidden = TRUE
+	winset(src, null, "command=[client.tgui_say_create_open_command(WHISPER_CHANNEL)]")
+
 /mob/verb/me_wrapper()
 	set name = ".Me"
 	set hidden = TRUE
@@ -707,6 +712,10 @@
 	if(istype(M,/mob/living/silicon/ai)) return
 	show_inv(usr)
 
+/mob/verb/stop_pulling_hotkey()
+	set name = "stop-pulling"
+	set hidden = TRUE
+	stop_pulling()
 
 /mob/verb/stop_pulling()
 
@@ -936,21 +945,25 @@
 
 
 /mob/verb/eastface()
+	set name = "eastface"
 	set hidden = 1
 	return facedir(client.client_dir(EAST))
 
 
 /mob/verb/westface()
+	set name = "eastface"
 	set hidden = 1
 	return facedir(client.client_dir(WEST))
 
 
 /mob/verb/northface()
+	set name = "northface"
 	set hidden = 1
 	return facedir(client.client_dir(NORTH))
 
 
 /mob/verb/southface()
+	set name = "southface"
 	set hidden = 1
 	return facedir(client.client_dir(SOUTH))
 
@@ -1221,6 +1234,11 @@
 	//This is called when the mob is let out of a holder
 	//Override for mob-specific functionality
 	return
+
+/mob/verb/face_direction_hotkey()
+	set name = "face-dir"
+	set hidden = TRUE
+	face_direction()
 
 /mob/verb/face_direction()
 	set name = "Face Direction"

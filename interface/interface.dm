@@ -90,6 +90,18 @@ Hotkey-Mode: (hotkey-mode must be on)
 \t3 = grab-intent
 \t4 = harm-intent
 \tCtrl = drag
+\tCtrl + W,A,S,D = look around
+\tc = stop pull
+\tm = me
+\tv = face direction
+\tShit+B = rest
+\tB = resist
+\t- = Move up
+\t+ = Move down
+\t0 = Look Up
+\t9 = Look Down
+\tl = LOOC
+\tu = Whisper
 \tShift = examine
 </font>"}
 
