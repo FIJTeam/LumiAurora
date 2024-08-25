@@ -60,6 +60,9 @@ macro "borghotkeymode"
 		name = "DELETE"
 		command = "delete-key-pressed"
 	elem
+		name = "C"
+		command = "stop-pulling"
+	elem
 		name = "1"
 		command = "toggle-module 1"
 	elem
@@ -222,10 +225,10 @@ macro "borghotkeymode"
 		name = "CTRL+Southeast"
 		command = "Move-Down"
 	elem
-		name = ","
+		name = "-"
 		command = "Move-Upwards"
 	elem
-		name = "."
+		name = "="
 		command = "Move-Down"
 
 
@@ -291,6 +294,9 @@ macro "macro"
 		name = "DELETE"
 		command = "delete-key-pressed"
 	elem
+		name = "C"
+		command = "stop-pulling"
+	elem
 		name = "CTRL+1"
 		command = "a-intent help"
 	elem
@@ -351,6 +357,9 @@ macro "macro"
 		name = "F2"
 		command = ".ooc"
 	elem
+		name = "L"
+		command = ".looc"
+	elem
 		name = "F2+REP"
 		command = ".screenshot auto"
 	elem
@@ -359,6 +368,9 @@ macro "macro"
 	elem
 		name = "F3"
 		command = ".say"
+	elem
+		name = "U"
+		command = ".whis"
 	elem
 		name = "F4"
 		command = ".me"
@@ -405,10 +417,10 @@ macro "macro"
 		name = "CTRL+Southeast"
 		command = "Move-Down"
 	elem
-		name = ","
+		name = "-"
 		command = "Move-Upwards"
 	elem
-		name = "."
+		name = "="
 		command = "Move-Down"
   elem
     name = "R"
@@ -441,6 +453,9 @@ macro "hotkeymode"
 		name = "CTRL+WEST"
 		command = "westface"
 	elem
+		name = "CTRL+A"
+		command = "westface"
+	elem
 		name = "WEST+REP"
 		command = ".moveleft"
 	elem
@@ -448,6 +463,9 @@ macro "hotkeymode"
 		command = "northfaceperm"
 	elem
 		name = "CTRL+NORTH"
+		command = "northface"
+	elem
+		name = "CTRL+W"
 		command = "northface"
 	elem
 		name = "NORTH+REP"
@@ -459,6 +477,9 @@ macro "hotkeymode"
 		name = "CTRL+EAST"
 		command = "eastface"
 	elem
+		name = "CTRL+D"
+		command = "eastface"
+	elem
 		name = "EAST+REP"
 		command = ".moveright"
 	elem
@@ -466,6 +487,9 @@ macro "hotkeymode"
 		command = "southfaceperm"
 	elem
 		name = "CTRL+SOUTH"
+		command = "southface"
+	elem
+		name = "CTRL+S"
 		command = "southface"
 	elem
 		name = "SOUTH+REP"
@@ -476,6 +500,9 @@ macro "hotkeymode"
 	elem
 		name = "DELETE"
 		command = "delete-key-pressed"
+	elem
+		name = "C"
+		command = "stop-pulling"
 	elem
 		name = "1"
 		command = "a-intent help"
@@ -563,6 +590,9 @@ macro "hotkeymode"
 	elem
 		name = "T"
 		command = ".say"
+	elem
+		name = "U"
+		command = ".whis"
 	elem "w_key"
 		name = "W+REP"
 		command = ".moveup"
@@ -597,6 +627,24 @@ macro "hotkeymode"
 		name = "F2"
 		command = ".ooc"
 	elem
+		name = "SHIFT+B"
+		command = "rest"
+	elem
+		name = "B"
+		command = "resist"
+	elem
+		name = "0"
+		command = "look up"
+	elem
+		name = "9"
+		command = "look down"
+	elem
+		name = "V"
+		command = "face-dir"
+	elem
+		name = "L"
+		command = ".looc"
+	elem
 		name = "F2+REP"
 		command = ".screenshot auto"
 	elem
@@ -606,7 +654,13 @@ macro "hotkeymode"
 		name = "F3"
 		command = ".say"
 	elem
+		name = "U"
+		command = ".whis"
+	elem
 		name = "F4"
+		command = ".me"
+	elem
+		name = "M"
 		command = ".me"
 	elem
 		name = "F5"
@@ -651,10 +705,10 @@ macro "hotkeymode"
 		name = "CTRL+Southeast"
 		command = "Move-Down"
 	elem
-		name = ","
+		name = "-"
 		command = "move-upwards"
 	elem
-		name = "."
+		name = "="
 		command = "Move-Down"
   elem
     name = "R"
@@ -777,6 +831,9 @@ macro "borgmacro"
 		name = "F2"
 		command = ".ooc"
 	elem
+		name = "L"
+		command = ".looc"
+	elem
 		name = "F2+REP"
 		command = ".screenshot auto"
 	elem
@@ -831,10 +888,10 @@ macro "borgmacro"
 		name = "CTRL+Southeast"
 		command = "Move-Down"
 	elem
-		name = ","
+		name = "-"
 		command = "Move-Upwards"
 	elem
-		name = "."
+		name = "="
 		command = "Move-Down"
 
 

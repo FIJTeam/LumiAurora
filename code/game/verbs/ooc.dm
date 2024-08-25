@@ -70,6 +70,11 @@
 			else
 				to_chat(target, "<span class='ooc'><span class='[ooc_style]'>" + create_text_tag("OOC", target) + " <EM>[display_name]:</EM> <span class='message linkify'>[msg]</span></span></span>")
 
+/client/verb/looc_verb()
+	set name = ".LOOC"
+	set hidden = TRUE
+	winset(src, null, "command=[src.tgui_say_create_open_command(LOOC_CHANNEL)]")
+
 /client/verb/looc(msg as text)
 	set name = "LOOC"
 	set desc = "Local OOC, seen only by those in view."
