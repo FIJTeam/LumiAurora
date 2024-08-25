@@ -13,6 +13,7 @@ $say: #a4bad6;
 $radio: #1ecc43;
 $me: #5975da;
 $ooc: #cca300;
+$looc: #5dd4c1;
 
 ////////////////////////////////////////////////
 // Subchannel chat colors
@@ -37,6 +38,7 @@ $_channel_map: (
   'radio': $radio,
   'me': $me,
   'ooc': $ooc,
+  'looc': $looc,
   'ai': $ai,
   'admin': $admin,
   'binary': $binary,
@@ -52,6 +54,7 @@ $_channel_map: (
   'supply': $supply,
   'hail': $hail,
   'ent': $ent,
+  'whis': $say,
 );
 
 $channel_keys: map.keys($_channel_map) !default;
