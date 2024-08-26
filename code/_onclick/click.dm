@@ -76,7 +76,28 @@
 			return
 		return B.ClickOn(A, params)
 
-	/* END Aurora snowflake */
+	var/list/modifiers = params2list(params)
+	if(modifiers["right"])
+		RightClickOn(A)
+		return TRUE
+	if(modifiers["shift"] && modifiers["ctrl"])
+		CtrlShiftClickOn(A)
+		return TRUE
+	if(modifiers["shift"] && modifiers["middle"])
+		pointed(A)
+		return TRUE
+	if(modifiers["middle"])
+		MiddleClickOn(A)
+		return TRUE
+	if(modifiers["shift"])
+		ShiftClickOn(A)
+		return FALSE
+	if(modifiers["alt"]) // alt and alt-gr (rightalt)
+		AltClickOn(A)
+		return
+	if(modifiers["ctrl"])
+		CtrlClickOn(A)
+		return TRUE
 
 	if(LAZYACCESS(modifiers, SHIFT_CLICK))
 		if(LAZYACCESS(modifiers, MIDDLE_CLICK))
