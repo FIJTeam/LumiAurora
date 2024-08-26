@@ -73,8 +73,6 @@ Hotkey-Mode: (hotkey-mode must be on)
 \ts = down
 \td = right
 \tw = up
-\t, = move-upwards
-\t. = move-down
 \tq = drop
 \te = equip
 \tr = throw
@@ -96,12 +94,15 @@ Hotkey-Mode: (hotkey-mode must be on)
 \tv = face direction
 \tShit+B = rest
 \tB = resist
-\t- = Move up
-\t+ = Move down
+\t+ = Move up
+\t- = Move down
 \t0 = Look Up
 \t9 = Look Down
 \tl = LOOC
 \tu = Whisper
+\to = OOC
+\tshift+wheelClick = point
+\tspace = switch run and walk
 \tShift = examine
 </font>"}
 

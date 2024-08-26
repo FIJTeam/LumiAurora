@@ -171,6 +171,9 @@ macro "borghotkeymode"
 		name = "F2"
 		command = ".ooc"
 	elem
+		name = "O"
+		command = ".ooc"
+	elem
 		name = "F2+REP"
 		command = ".screenshot auto"
 	elem
@@ -225,10 +228,10 @@ macro "borghotkeymode"
 		name = "CTRL+Southeast"
 		command = "Move-Down"
 	elem
-		name = "-"
+		name = "="
 		command = "Move-Upwards"
 	elem
-		name = "="
+		name = "-"
 		command = "Move-Down"
 
 
@@ -357,6 +360,9 @@ macro "macro"
 		name = "F2"
 		command = ".ooc"
 	elem
+		name = "O"
+		command = ".ooc"
+	elem
 		name = "L"
 		command = ".looc"
 	elem
@@ -369,7 +375,7 @@ macro "macro"
 		name = "F3"
 		command = ".say"
 	elem
-		name = "U"
+		name = "SHIFT+T"
 		command = ".whis"
 	elem
 		name = "F4"
@@ -417,10 +423,10 @@ macro "macro"
 		name = "CTRL+Southeast"
 		command = "Move-Down"
 	elem
-		name = "-"
+		name = "="
 		command = "Move-Upwards"
 	elem
-		name = "="
+		name = "-"
 		command = "Move-Down"
   elem
     name = "R"
@@ -591,7 +597,7 @@ macro "hotkeymode"
 		name = "T"
 		command = ".say"
 	elem
-		name = "U"
+		name = "SHIFT+T"
 		command = ".whis"
 	elem "w_key"
 		name = "W+REP"
@@ -627,6 +633,9 @@ macro "hotkeymode"
 		name = "F2"
 		command = ".ooc"
 	elem
+		name = "O"
+		command = ".ooc"
+	elem
 		name = "SHIFT+B"
 		command = "rest"
 	elem
@@ -654,7 +663,7 @@ macro "hotkeymode"
 		name = "F3"
 		command = ".say"
 	elem
-		name = "U"
+		name = "SHIFT+T"
 		command = ".whis"
 	elem
 		name = "F4"
@@ -705,11 +714,14 @@ macro "hotkeymode"
 		name = "CTRL+Southeast"
 		command = "Move-Down"
 	elem
-		name = "-"
+		name = "="
 		command = "move-upwards"
 	elem
-		name = "="
+		name = "-"
 		command = "Move-Down"
+	elem
+		name = "SPACE"
+		command = "switch-move"
   elem
     name = "R"
     command = "throw_intent_toggle"
@@ -831,6 +843,9 @@ macro "borgmacro"
 		name = "F2"
 		command = ".ooc"
 	elem
+		name = "O"
+		command = ".ooc"
+	elem
 		name = "L"
 		command = ".looc"
 	elem
@@ -888,10 +903,10 @@ macro "borgmacro"
 		name = "CTRL+Southeast"
 		command = "Move-Down"
 	elem
-		name = "-"
+		name = "="
 		command = "Move-Upwards"
 	elem
-		name = "="
+		name = "-"
 		command = "Move-Down"
 
 
