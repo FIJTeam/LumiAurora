@@ -415,6 +415,9 @@
 
 /mob/var/obj/effect/decal/point/pointing_effect = null//Spam control, can only point when the previous pointer qdels
 
+/mob/verb/point_hotkey()
+
+
 /mob/verb/pointed(atom/A as mob|obj|turf in view())
 	set name = "Point To"
 	set category = "Object"
@@ -973,7 +976,7 @@
 
 
 /mob/verb/westface()
-	set name = "eastface"
+	set name = "westface"
 	set hidden = 1
 	return facedir(client.client_dir(WEST))
 
@@ -1468,6 +1471,16 @@
 	set name = "cycle-zone"
 	set hidden = 1
 	toggle_zone_sel(BP_ALL_LIMBS)
+
+/mob/verb/movement_intent_hotkey()
+	set name = "switch-move"
+	set hidden = TRUE
+	switch(m_intent)
+		if(M_RUN)
+			m_intent = M_WALK
+		if(M_WALK)
+			m_intent = M_RUN
+	hud_used.move_intent.update_move_icon(src)
 
 /client/proc/toggle_zone_sel(list/zones)
 	if(!check_has_body_select())
