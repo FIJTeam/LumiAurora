@@ -266,30 +266,58 @@ GLOBAL_LIST_INIT(world_api_rate_limit, list())
 /world/proc/update_status()
 	SHOULD_NOT_SLEEP(TRUE)
 
+	var/list/s = list()
+
+	if (GLOB.config && GLOB.config.server_name)
+		s += "<b>[GLOB.config.server_name]</b> &#8212; "
+
+	s += "<b>[station_name()]</b>";
+	s += " ("
+	s += "<a href=\"[GLOB.config.forumurl]\">" //Change this to wherever you want the hub to link to.
+	s += "Forums"  //Replace this with something else. Or ever better, delete it and uncomment the game version.
+	s += "</a>"
+	s += ")"
+
 	var/list/features = list()
 
-    var/new_status = ""
+	if (Master.init_timeofday)	// This is set at the end of initialization.
+		if(GLOB.master_mode)
+			features += GLOB.master_mode
+	else
+		features += "<b>STARTING</b>"
 
-    if (GLOB.config)
-        var/server_name = GLOB.config.server_name
-        if (server_name)
-            new_status += "<b>[server_name]</b> &#8212; "
+	if (!GLOB.config.enter_allowed)
+		features += "closed"
 
-    new_status += "("
-    new_status += "<a href=\"[GLOB.config.forumurl]\">" // Обновите на Discord URL или другой
-    new_status += "Discord"
-    new_status += ")"
-    new_status += "<br>Высокий уровень RolePlay, модифицированный без ответвлений билд Aurora"
+	features += GLOB.config.abandon_allowed ? "respawn" : "no respawn"
 
-    // Устанавливаем статус игры в зависимости от состояния
-    if (SSticker.current_state <= GAME_STATE_PREGAME)
-        new_status += "<br>СТАТУС ИГРЫ: <b>В ЛОББИ</b><br>"
-    else
-        new_status += "<br>СТАТУС ИГРЫ: <b>ИДЁТ ИГРА</b><br>"
+	if (GLOB.config && GLOB.config.allow_vote_mode)
+		features += "vote"
 
-    // Обновление статуса
-    if (src.status != new_status)
-        src.status = new_status
+	if (GLOB.config && GLOB.config.allow_ai)
+		features += "AI allowed"
+
+	var/n = 0
+	for (var/mob/M in GLOB.player_list)
+		if (M.client)
+			n++
+
+	if (n > 1)
+		features += "~[n] players"
+	else if (n > 0)
+		features += "~[n] player"
+
+	if (GLOB.config && GLOB.config.hostedby)
+		features += "hosted by <b>[GLOB.config.hostedby]</b>"
+
+	if (features)
+		s += ": [jointext(features, ", ")]"
+
+	s = s.Join()
+
+	/* does this help? I do not know */
+	if (src.status != s)
+		src.status = s
 
 #define FAILED_DB_CONNECTION_CUTOFF 5
 
