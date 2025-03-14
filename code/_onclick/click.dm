@@ -76,7 +76,8 @@
 			return
 		return B.ClickOn(A, params)
 
-	var/list/modifiers = params2list(params)
+	/* END Aurora snowflake */
+
 	if(modifiers["right"])
 		RightClickOn(A)
 		return TRUE
