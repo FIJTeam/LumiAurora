@@ -15,10 +15,10 @@
 	)
 
 	lobby_icon_image_paths = list(
-								list('icons/misc/titlescreens/tajara/taj1.png', 'icons/misc/titlescreens/tajara/taj2.png', 'icons/misc/titlescreens/tajara/taj3.png', 'icons/misc/titlescreens/tajara/taj4.png', 'icons/misc/titlescreens/tajara/Ghostsofwar.png', 'icons/misc/titlescreens/tajara/crack.png', 'icons/misc/titlescreens/tajara/blind_eye.png', 'icons/misc/titlescreens/tajara/RoyalGrenadier.png', 'icons/misc/titlescreens/tajara/For_the_King.png'),
-								list('icons/misc/titlescreens/synths/baseline.png', 'icons/misc/titlescreens/synths/bishop.png', 'icons/misc/titlescreens/synths/g2.png', 'icons/misc/titlescreens/synths/shell.png', 'icons/misc/titlescreens/synths/zenghu.png'),
-								list('icons/misc/titlescreens/vaurca/cthur.png', 'icons/misc/titlescreens/vaurca/klax.png', 'icons/misc/titlescreens/vaurca/liidra.png', 'icons/misc/titlescreens/vaurca/zora.png'),
-								list('icons/misc/titlescreens/space/odin.png', 'icons/misc/titlescreens/space/starmap.png', 'icons/misc/titlescreens/space/undocking.png', 'icons/misc/titlescreens/space/voyage.png')
+								list('icons/misc/titlescreens/lumititles/custom/custom1.png', 'icons/misc/titlescreens/lumititles/custom/custom2.png', 'icons/misc/titlescreens/lumititles/custom/custom3.png', 'icons/misc/titlescreens/lumititles/custom/custom4.png', 'icons/misc/titlescreens/lumititles/custom/custom5.png', 'icons/misc/titlescreens/lumititles/custom/custom6.png', 'icons/misc/titlescreens/lumititles/custom/custom7.png', 'icons/misc/titlescreens/lumititles/custom/custom8.png', 'icons/misc/titlescreens/lumititles/custom/custom9.png', 'icons/misc/titlescreens/lumititles/custom/custom9.png'),
+								list('icons/misc/titlescreens/lumititles/space/explore.png', 'icons/misc/titlescreens/lumititles/space/odin.png', 'icons/misc/titlescreens/lumititles/space/undocking.png', 'icons/misc/titlescreens/lumititles/space/voyage.png', 'icons/misc/titlescreens/lumititles/space/voyage.png'),
+								list('icons/misc/titlescreens/lumititles/synths/baseline.png', 'icons/misc/titlescreens/lumititles/synths/bishop.png', 'icons/misc/titlescreens/lumititles/synths/g2.png', 'icons/misc/titlescreens/lumititles/synths/shell.png', 'icons/misc/titlescreens/lumititles/synths/zenghu.png', 'icons/misc/titlescreens/lumititles/synths/zenghu.png'),
+								list('icons/misc/titlescreens/lumititles/tajara/blind_eye.png', 'icons/misc/titlescreens/lumititles/tajara/crack.png', 'icons/misc/titlescreens/lumititles/tajara/RoyalGrenadier.png', 'icons/misc/titlescreens/lumititles/tajara/taj4.png', 'icons/misc/titlescreens/lumititles/tajara/taj4.png')
 								)
 
 	lobby_transitions = 10 SECONDS

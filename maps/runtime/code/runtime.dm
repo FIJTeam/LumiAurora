@@ -12,7 +12,7 @@
 
 	force_spawnpoint = TRUE
 
-	lobby_icon_image_paths = list(list('icons/misc/titlescreens/runtime/test.png'))
+	lobby_icon_image_paths = list(list('icons/misc/titlescreens/lumititles/runtime/test1.png', 'icons/misc/titlescreens/lumititles/runtime/test2.png', 'icons/misc/titlescreens/lumititles/runtime/test3.png', 'icons/misc/titlescreens/lumititles/runtime/test3.png'))
 	lobby_transitions = 10 SECONDS
 
 	admin_levels = list(9)
