@@ -986,7 +986,7 @@ window "mainwindow"
 		is-default = true
 		saved-params = "pos;size;is-minimized;is-maximized"
 		statusbar = false
-		title = "Space Station 13 - Aurora Station"
+		title = "LumiAurora"
 		icon = 'icons\\ss13_64.png'
 		macro = "macro"
 		menu = "menu"
