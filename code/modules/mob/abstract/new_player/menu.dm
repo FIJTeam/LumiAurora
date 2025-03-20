@@ -48,8 +48,8 @@
 	using.name = "Current Lore Summary"
 	adding += using
 
-	using = new /atom/movable/screen/new_player/selection/server_logo(src)
-	using.name = "Aurora"
+	using = new /atom/movable/screen/new_player/selection/server_logo_lumiaurora(src)
+	using.name = "LumiAurora"
 	adding += using
 
 	mymob.client.screen = list()
@@ -423,13 +423,13 @@ ABSTRACT_TYPE(/atom/movable/screen/new_player/selection)
  *
  * Button to view the Aurora website
  */
-/atom/movable/screen/new_player/selection/server_logo
-	name = "Aurora"
-	screen_loc = "LEFT+0.5,CENTER+42"
+/atom/movable/screen/new_player/selection/server_logo_lumiaurora
+	name = "LumiAurora"
+	screen_loc = "LEFT+0.5,CENTER+23"
 	uses_hud_arrow = FALSE
 	does_matrix_scale = FALSE
 
-/atom/movable/screen/new_player/selection/server_logo/Click()
+/atom/movable/screen/new_player/selection/server_logo_lumiaurora/Click()
 	var/mob/abstract/new_player/player = usr
 	sound_to(player, click_sound)
 	if (GLOB.config.mainsiteurl)
